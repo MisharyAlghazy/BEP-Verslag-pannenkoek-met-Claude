@@ -1,17 +1,17 @@
-\chapter{Weerstandsschatting en aandrijflijn}
+\chapter{Energievraag van het schip}
+\label{ch:energievraag}
 \label{ch:holtrop-aandrijflijn}
 
-\noindent In dit hoofdstuk wordt deelvraag 2 beantwoord:
+\noindent Dit hoofdstuk bepaalt de \emph{energievraag} van \emph{'t~Jansje}: het
+benodigde aandrijfvermogen en de daaruit volgende energiebehoefte aan boord. Deze
+grootheden vormen de invoer voor de latere keuze van het energieopslagsysteem
+(Hoofdstuk~\ref{ch:energiekeuze}); dit hoofdstuk levert dus invoer en beantwoordt
+zelf nog geen deelvraag.
 
-\begin{quote}
-    \textit{\textbf{Welk energieopslagsysteem past het best bij Jansje, gegeven de
-    technische parameters, het operationele profiel en de financiële parameters?}}
-\end{quote}
-
-\noindent Hiervoor is het benodigd aandrijfvermogen een belangrijke
-invoerparameter. Om deze te verkrijgen, wordt eerst de scheepsweerstand geschat via de
-Holtrop-Mennen methode. Daarna wordt de volledige aandrijflijn doorgerekend naar
-het minimaal te installeren motorvermogen.
+\noindent Eerst wordt de scheepsweerstand geschat via de Holtrop-Mennen methode en
+wordt de volledige aandrijflijn doorgerekend naar het minimaal te installeren
+motorvermogen. Vervolgens wordt op basis van het operationeel profiel en de hotel
+load de totale energiebalans, inclusief reserves, bepaald.
 
 % ============================================================
 \section{Weerstandsschatting met de Holtrop-Mennen methode}
@@ -380,32 +380,8 @@ Figuur~\ref{fig:holtrop_pie} geeft de procentuele verdeling bij 7~knoop.
 \label{fig:holtrop_pie}
 \end{figure}
 
-% ------------------------------------------------------------------
-\subsection{Validatie en beperkingen}
-\label{subsec:holtrop-validatie}
-
-De Holtrop-Mennen methode is een statistische regressiemethode die
-geschikt is voor vroege ontwerpfasen \cite{Holtrop1984}. De methode
-geeft geen garantie op een specifieke nauwkeurigheid, want dat hangt
-af van hoe goed het schip lijkt op de dataset waarop de regressie
-gebaseerd is. Voor \emph{'t~Jansje} zijn drie kanttekeningen van belang:
-
-\begin{itemize}
-    \item \textbf{Aanhangsels:} $R_{APP}$ is gebaseerd op een schatting van het
-          natte roeroppervlak achter een skeg. Bij definitieve vaststelling van
-          het aandrijfconcept dient dit nader te worden bepaald.
-
-    \item \textbf{Ondiepwater-effect:} De methode is ontwikkeld voor diepwater.
-          Het vaargebied (Nieuwe Maas, Maassluis) heeft een waterdiepte van
-          5--10~m, wat bij een diepgang van 1{,}50~m een verhouding
-          $h/T \approx 3$--$7$ oplevert. Bij $h/T < 4$ treden
-          ondiepwatereffecten op.
-
-    \item \textbf{Golven en wind:} De berekening geldt voor kalm water. Marges
-          voor golfweerstand en windweerstand zijn toegevoegd in de
-          20\%-marge uit Sectie~\ref{subsec:aandrijflijn-berekening}.
-\end{itemize}
-
+% --- Subsectie "Validatie en beperkingen" verplaatst naar het hoofdstuk Discussie ---
+% (label subsec:holtrop-validatie verhuist mee; zie Discussie.tex)
 Het resultaat ($P_E = 10{,}6\ \mathrm{kW}$ bij 7~knopen) vormt de invoer voor
 de aandrijflijnanalyse in de volgende sectie.
 

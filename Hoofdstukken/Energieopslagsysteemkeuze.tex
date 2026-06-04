@@ -1,177 +1,5 @@
-\chapter{Randvoorwaarden}
-
-\noindent Nu het aandrijfvermogen is bepaald, kunnen verschillende randvoorwaarden worden opgesteld. Deze randvoorwaarden zullen in het volgende hoofdstuk nodig zijn voor het verantwoorden van de keuze van het energieopslagsysteem.
-
-\section*{Vermogensberekening}
-
-\noindent Om het totale vermogen te bepalen moet niet enkel worden gekeken naar het benodigde vermogen voor het aandrijven van het schip. In de huidige configuratie is er op het schip het volgende aanwezig wat stroom verbruikt, de zogeheten 'hotel load' (verlichting, stopcontacten, koelkast, boiler) en bijvoorbeeld batterijen voor het starten van de motoren \cite{vanbaalen2026interview}. Om een goede inschatting te kunnen maken voor hoeveel stroom dit verbruikt zal een berekening worden gedaan aan de hand van het gemiddelde stroomverbruik per persoon per huishouden. Aangezien deze gemiddelden veel meer in weging nemen dan aanwezig is op het schip (wasmachine, vaatwasser, televisie etc.) is deze schatting conservatief en zal het verbruik zeer waarschijnlijk lager uitvallen. Volgens de ANWB \cite{ANWBEnergieverbruik} is het gemiddeld stroomverbruik per jaar voor een driepersoonswoning 3080 kWh. De berekening die gebruikt is om dit voor het schip te bepalen is hieronder getoond:
-Het totale dagelijkse verbruik van het huishouden ($E_{\text{dag, huis}}$) wordt berekend door het jaarverbruik ($E_{\text{jaar}}$) te delen door het aantal dagen ($d$):
-\begin{equation}
-E_{\text{dag, huis}} = \frac{E_{\text{jaar}}}{d} = \frac{3080 \text{ kWh}}{365 \text{ dagen}} \approx 8{,}4384 \text{ kWh/dag}
-\end{equation}
-Om het individuele verbruik per persoon per dag ($E_{\text{pp, dag}}$) te bepalen, wordt het dagelijkse huishoudverbruik gedeeld door het aantal personen ($n = 3$):
-\begin{equation}
-E_{\text{pp, dag}} = \frac{E_{\text{dag, huis}}}{n} = \frac{8{,}4384 \text{ kWh/dag}}{3 \text{ personen}} \approx 2{,}8128 \text{ kWh per persoon per dag}
-\end{equation}
-
-\noindent Wegens het feit dat het schip gedurende de dag maximaal 8 uur vaart en er vanuit wordt gegaan dat er tijdens het stilligen in de haven een stroomvoorziening is wordt het verbruik per 8 uur berekend: ($24 \text{ uur} / 8 \text{ uur} = 3$). Het verbruik per persoon per 8 uur ($E_{\text{pp, 8u}}$) is dus:
-\begin{equation}
-E_{\text{pp, 8u}} = \frac{E_{\text{pp, dag}}}{3} = \frac{2{,}8128 \text{ kWh}}{3} \approx 0{,}9376 \text{ kWh per persoon per 8 uur}
-\end{equation}
-
-\noindent Het gemiddelde elektrische vermogen ($P_{\text{pp}}$) in kilowatt ($\text{kW}$) dat een persoon continu vraagt tijdens deze 8 uur, wordt berekend met de formule $P = \frac{E}{t}$:
-\begin{equation}
-P_{\text{pp}} = \frac{E_{\text{pp, 8u}}}{8 \text{ uur}} = \frac{0{,}9376 \text{ kWh}}{8 \text{ uur}} \approx 0{,}1172 \text{ kW} \quad (\approx 117{,}2 \text{ W})
-\end{equation}
-
-\noindent Nu we de individuele basisbehoefte per persoon kennen, kunnen we dit opschalen naar de  capaciteit op het schip. Er zijn in totaal vier overnachtingsplaatsen waardoor het verbruik van vier personen zal worden meegenomen. Van $4 \text{ personen}$ ($n_{\text{nieuw}} = 4$).
-
-\begin{equation}
-E_{\text{huis 4p, 8u}} = E_{\text{pp, 8u}} \times 4 = 0{,}9376 \text{ kWh} \times 4 \approx 3{,}7504 \text{ kWh per 8 uur}
-\end{equation}
-
-\noindent Het totale continue vermogen ($P_{\text{totaal 4p}}$) dat het systeem moet kunnen leveren om deze 4 personen gelijktijdig te voorzien is:
-\begin{equation}
-P_{\text{totaal 4p}} = P_{\text{pp}} \times 4 = 0{,}1172 \text{ kW} \times 4 \approx 0{,}4688 \text{ kW} \quad (\approx 468{,}8 \text{ W})
-\end{equation}
-
-\noindent Wegens het feit dat dit een conservatieve schatting is en de batterijen voor het starten van de motoren waarschijnlijk niet nodig zijn zal in het vervolg een totaal extra vermogen van 0.5 kW worden toegevoegd.
-
-\section*{Capaciteitberekening}
-
-\noindent Nu het totale minimale benodigde vermogen is bepaald (22.5 kW) kan de benodigde capaciteit voor het schup worden bepaald. Aangezien het schip gedurende de trip veelal zal varen op een vermogen van 10.6 kW + 0.5 kW (hotel load) kan op basis daarvan de capaciteit worden bepaald gedurende een vaartocht van 6 of 8 uur.
-
-\noindent Nu het totale minimale benodigde vermogen is bepaald ($22{,}5 \text{ kW}$) kan de benodigde capaciteit voor het schip worden bepaald. Aangezien het schip gedurende de trip veelal zal varen op een vermogen van $10{,}6 \text{ kW} + 0{,}5 \text{ kW}$ (hotel load) kan op basis daarvan de capaciteit worden bepaald gedurende een vaartocht van 6 of 8 uur.
-
-
-\noindent De benodigde netto energiecapaciteit ($E$) in kilowattuur ($\text{kWh}$) wordt berekend door dit constante vermogen te vermenigvuldigen met de vaartijd ($t$) in uren ($E = P \times t$). Bij een gemiddelde vaartocht van 6 uur ($t = 6$) is de minimaal benodigde netto energiecapaciteit:
-\begin{equation}
-E_{\text{6 uur, netto}} = 11{,}1 \text{ kW} \times 6 \text{ uur} = 66{,}6 \text{ kWh}
-\end{equation}
-
-\noindent Bij een maximale vaartijd van  8 uur  ($t = 8$) is de minimaal benodigde netto energiecapaciteit:
-\begin{equation}
-E_{\text{8 uur, netto}} = 11{,}1 \text{ kW} \times 8 \text{ uur} = 88{,}8 \text{ kWh}
-\end{equation}
-
-\noindent Echter is het maximaal benodigd vermogen hoger, immers zal het schip bij speciale manoeuvres zoals het ontmeren, aanmeren en manoeuvreren in een sluis meer vermogen gebruiken. In de meest extreme situatie, waarin dit vermogen in combinatie met de maximale hotel load constant nodig is gedurende 6 of 8 uur varen is dit de benodigde energiecapaciteit:
-
-\begin{equation}
-E_{\text{6 uur, extreem netto}} = 22{,}5 \text{ kW} \times 6 \text{ uur} = 135{,}0 \text{ kWh}
-\end{equation}
-
-\begin{equation}
-E_{\text{8 uur, extreem netto}} = 22{,}5 \text{ kW} \times 8 \text{ uur} = 180{,}0 \text{ kWh}
-\end{equation}
-
-\noindent Aangezien dit in de praktijk in geen enkele situatie nodig is zal de benodigde capaciteit worden bepaald aan de van een manoeuvreertijd van maximaal 30 minuten uur per trip \cite{vanbaalen2026interview}.
-
-\noindent Om de totale netto energiecapaciteit ($E_{\text{totaal, netto}}$) te bepalen voor een vaardag waarin zowel kruisvaart als intensief manoeuvreren voorkomt, wordt de berekening opgesplitst in twee operationele fasen. We gaan uit van een kruisvermogen inclusief hotel load van $11{,}4 \text{ kW}$ gedurende 7,5 uur, en het maximale vermogen van $22{,}0 \text{ kW}$ gedurende 30 minuten ($0{,}5 \text{ uur}$).
-
-\noindent Het netto energieverbruik voor de kruisvaart ($E_{\text{kruis}}$) bedraagt:
-\begin{equation}
-E_{\text{kruis}} = 11{,}4 \text{ kW} \times 7{,}5 \text{ uur} = 85{,}5 \text{ kWh}
-\end{equation}
-
-\noindent Het netto energieverbruik voor het manoeuvreren ($E_{\text{manoeuvre}}$) bedraagt:
-\begin{equation}
-E_{\text{manoeuvre}} = 22{,}5 \text{ kW} \times 0{,}5 \text{ uur} = 11{,}25 \text{ kWh}
-\end{equation}
-
-\noindent De totale benodigde netto accucapaciteit voor deze trip is de som van beide fasen:
-\begin{equation}
-E_{\text{totaal, netto}} = E_{\text{kruis}} + E_{\text{manoeuvre}} = 85{,}5 \text{ kWh} + 11{,}25 \text{ kWh} = 96{,}75 \text{ kWh}
-\end{equation}
-
-\noindent Om er zeker van te zijn dat het schip in geen enkele situatie zonder energie komt te zitten, wordt er rekening gehouden met een extra capaciteitsreserve van 1 uur varen op kruissnelheid ($11{,}4 \text{ kW}$). Dit garandeert dat de bestemming te allen tijde veilig kan worden bereikt, zelf bij onvoorziene vertragingen.
-
-\noindent De benodigde energiecapaciteit voor de reserve ($E_{\text{reserve}}$) bedraagt:
-\begin{equation}
-E_{\text{reserve}} = 11{,}4 \text{ kW} \times 1 \text{ uur} = 11{,}4 \text{ kWh}
-\end{equation}
-
-\noindent De totale benodigde netto accucapaciteit inclusief deze veiligheidsreserve wordt hiermee:
-\begin{equation}
-E_{\text{totaal, inclusief reserve}} = E_{\text{kruis}} + E_{\text{manoeuvre}} + E_{\text{reserve}}
-\end{equation}
-
-\begin{equation}
-E_{\text{totaal, inclusief reserve}} = 85{,}5 \text{ kWh} + 11{,}25 \text{ kWh} + 11{,}4 \text{ kWh} = 108{,}15 \text{ kWh}
-\end{equation}
-
-
-\section*{Beschikbaar volume voor energieopslagsysteem}
-Voor een praktische implementatie zijn de volgende eisen belangrijk:
-\begin{enumerate}
-    \item Ruimte is niet essentieel voor eigenaar
-    \item Beschermt tegen regen
-    \item Voldoet aan brandveiligheidseisen
-    \item Bereikbaar voor onderhoud
-    \item Lage GM waarde
-  
-\end{enumerate}
-Brandveiligheidseisen (bron verwijzing naar casper), daarvoor moeten systemen zoals batterijen thermisch geisoleerd zijn van de warmtebronnen (moto/uitlaat).\\
-Bereikbaar voor onderhoud \\
-Water bij een systeem is ongewenst voor de veiligheid door bijvoorbeeld kortsluiting, corrosie en slijtage.\\
-Lage GM betekent dat het energieopslagsysteem niet te hoog moeten zijn om het schip instabiel te maken.
-\subsection*{Beschikbare ruimtes}
-Het schip kan in vijf ruimtes opgedeeld worden hier beneden schematisch weergegeven, de rode lijnen in figuur \ref{fig:Bovenkant} zijn de loop paden, de blauwe strepen geven aan op welke pekken van het dek daadwerkelijk nuttige ruime is.
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=0.8\linewidth]{vanaf de zijkant.jpeg}
-    \caption{Zijprofiel van ruimtes}
-    \label{fig:zijkant}
-\end{figure}
-\begin{figure}
-    \centering
-    \includegraphics[width=0.8\linewidth]{vanaf boven.jpeg}
-    \caption{Bovenprofiel van ruimtes}
-    \label{fig:Bovenkant}
-\end{figure}
-\newpage
-\noindent Nu worden de ruimtes getoetst aan de eerder gestelde eisen.\\
-\\
-De Bridge en Woon ruimte zijn essentieel voor de eigenaar en vallen af (eis 1).\\
-Het dek is niet geschikt omdat deze niet tegen regen beschermt (eis 2).\\
-Volgens \ref{} voldoet de machinekamer niet aan moderne brandveiligheidsseisen eis(3).\\
-Alle ruimtes kunnen zo ingericht worden zodat ze bereikbaar zijn voor onderhoud (eis 4).\\
-Omdat de bridge en het dek op het oppervlak van het schip zijn is de KG hoog (eis 5).\\
-Dit wordt gevisualiseerd in de volgende matrix:
-
-\begin{table}[htbp]
-\centering
-\caption{Evaluatie van scheepsruimtes op basis van functionele eisen}
-\label{tab:ruimte_evaluatie}
-\begin{tabular}{p{5cm}ccccc}
-\toprule
-\textbf{Functionele eis} & \textbf{Machinekamer} & \textbf{Opslagruimte} & \textbf{Woonruimte} & \textbf{Dek} & \textbf{Bridge} \\
-\midrule
-1. Ruimte is niet essentieel voor eigenaar & \checkmark & \checkmark & $\times$   & \checkmark & $\times$   \\
-\addlinespace
-2. Beschermt tegen regen                   & \checkmark & \checkmark & \checkmark & $\times$   & \checkmark \\
-\addlinespace
-3. Voldoet aan brandveiligheidseisen       & $\times$   & \checkmark & \checkmark & \checkmark & \checkmark \\
-\addlinespace
-4. Bereikbaar voor onderhoud               & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark \\
-\addlinespace
-5. Lage GM (Zwaartepunt)                   & \checkmark & \checkmark & \checkmark & $\times$   & $\times$   \\
-\bottomrule
-\end{tabular}
-\end{table}
-\noindent Dit geeft de volgende schematische weergave:
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.8\linewidth]{afvallers.jpeg}
-    \caption{Afvallers}
-    \label{fig:Afvallers}
-\end{figure}
-\noindent Oftewel alleen de opslagruimte is als enige een optie voor de opslag van batterijen. Deze opslagruimte heeft een volume van 12 $m^3$ en zal dus als beschikbare ruimte worden gezien \cite{vanbaalen2026interview}.
-
-
-
-
-
 \chapter{Energieopslagsysteemkeuze}
+\label{ch:energiekeuze}
 In dit hoofdstuk worden de verschillende mogelijkheden voor een energieopslagsysteem bekeken. Eerst worden in paragraaf 3.1 de eisen aan het systeem toegelicht. Daarna worden in paragraaf 3.2 alle mogelijke energieopslagsystemen gecategoriseerd en wordt onderzocht of ze geschikt zijn voor dit project. Na de inventarisatie van deze systemen wordt in paragraaf 3.3 aan de hand van een model de keuze ingeperkt, waarna in paragraaf 3.4 de definitieve keuze wordt gemaakt door middel van een gewogen-criteria-analyse.
 
 \section{Stroomschema energieopslagsysteemkeuze}
@@ -195,8 +23,8 @@ Om in dit project een optimaal resultaat te behalen, is het van belang uit te zo
 \toprule
 Energiesysteem categorie & grootte & vermogen & energiedichtheid\\
 \midrule
-Thermmische energiesystemen (TES)   & x & x & \cmark\\ 
-Mechanische energiesystemen (MES)   & x & \cmark & x\\ 
+Thermmische energiesystemen (TES)   & x & x & \cmark\\
+Mechanische energiesystemen (MES)   & x & \cmark & x\\
 Chemische energiesystemen (CES)   & \cmark & \cmark & \cmark\\
 Elektrochemische energiesystemen (EcES)  & \cmark & \cmark & \cmark\\
 Elektrische energiesystemen (EES)   & x & \cmark & \cmark\\
@@ -218,10 +46,10 @@ Onder elektrochemische energiesystemen vallen batterijen. Dit is interessant voo
 In deze paragraaf worden voor de bovengenoemde categorieën specifieke energieopslagsystemen onderzocht. Als basis voor dit onderzoek is uitgegaan van een studie door een eerder studententeam aan de TU Delft. Zij hebben onderzocht hoe aan de hand van een model een keuze kan worden gemaakt voor een energieopslagsysteem van een willekeurig schip \cite{BEPmodelexcel}. Vanuit dit model zijn systemen overgenomen. Vervolgens zijn hier door literatuuronderzoek en overleg met de opdrachtgever en partners enkele systemen aan toegevoegd om aan te sluiten bij moderne technologie en een weloverwogen keuze te kunnen maken.
 
 \subsection{Chemische energiesystemen}
-Voor toepassing aan boord van Het Jansje is niet alleen de hoeveelheid energie 
-van belang, maar ook de manier waarop de brandstof wordt opgeslagen. De 
-opslagvorm bepaalt namelijk de benodigde tank, het volume, de massa, de 
-veiligheidseisen en de praktische toepasbaarheid aan boord. Daarom worden in 
+Voor toepassing aan boord van Het Jansje is niet alleen de hoeveelheid energie
+van belang, maar ook de manier waarop de brandstof wordt opgeslagen. De
+opslagvorm bepaalt namelijk de benodigde tank, het volume, de massa, de
+veiligheidseisen en de praktische toepasbaarheid aan boord. Daarom worden in
 deze paragraaf verschillende chemische energiedragers vergeleken. We maken voor overzichtelijkheid ook verschil in verbranding en fuel cell.
 
 \subsection*{Verbranding}
@@ -239,8 +67,8 @@ Methanol (CH$_3$OH) is bij kamertemperatuur een vloeibare alcohol die kan worden
 Ammoniak (NH$_3$) is vloeibaar bij temperaturen onder −33 °C of een lichte overdruk \cite{EngineeringToolboxAmmonia}. Ammoniak bevat geen koolstof en veroorzaakt daarom geen directe CO$_2$-uitstoot bij verbranding. Wel kunnen er stikstofoxiden ontstaan tijdens het verbrandingsproces. Ammoniak kan worden toegepast in aangepaste verbrandingsmotoren of als energiedrager voor waterstofproductie en nog op diverse andere manieren.
 
 \subsubsection{\textbf{Waterstof}}
-Waterstof kan worden opgeslagen op twee manieren, of door middel van een combinatie hiervan. De eerste manier is opslag als vloeibare waterstof (−253 °C). Daarnaast kan waterstof worden opgeslagen als samengeperst gas onder hoge druk \cite{EngineeringToolboxHydrogen}. Als waterstof onder druk wordt opgelsagen kost het opslagproces 5-20\% van de energie die je uit waterstof kunt halen, afhankelijk van de grootte van de druk waarop je het brengt. Als waterstof afgekoeld moet worden tot het vloeibaar is kost het 30-40\% van de te gebruiken energie in de waterstof zelf, ook kost het energie om het gekoeld te houden \cite{doe2009hydrogencompression}. Vloeibaar waterstof is veel ingewikkelder om te gebruiken en kost dus ook veel meer energie. Aangezien er op het Jansje veel ruimte is en het om een 'klein' schip gaat wordt vloeibaar waterstof niet meegenomen. 
-Waterstof kan worden gebruikt in een verbrandingsmotor. De duurzaamheid van waterstof hangt sterk af van de productiewijze. In dit verslag wordt er uitgegaan van groene waterstof, dat is waterstof dat met duurzame elektriciteit is gemaakt. Bij de verbrandingsreactie ontstaat alleen H$_2$O, daarmee is het zo goed als emissievrij. Bij hoge temperaturen kan alsnog NO$_x$ ontstaan. 
+Waterstof kan worden opgeslagen op twee manieren, of door middel van een combinatie hiervan. De eerste manier is opslag als vloeibare waterstof (−253 °C). Daarnaast kan waterstof worden opgeslagen als samengeperst gas onder hoge druk \cite{EngineeringToolboxHydrogen}. Als waterstof onder druk wordt opgelsagen kost het opslagproces 5-20\% van de energie die je uit waterstof kunt halen, afhankelijk van de grootte van de druk waarop je het brengt. Als waterstof afgekoeld moet worden tot het vloeibaar is kost het 30-40\% van de te gebruiken energie in de waterstof zelf, ook kost het energie om het gekoeld te houden \cite{doe2009hydrogencompression}. Vloeibaar waterstof is veel ingewikkelder om te gebruiken en kost dus ook veel meer energie. Aangezien er op het Jansje veel ruimte is en het om een 'klein' schip gaat wordt vloeibaar waterstof niet meegenomen.
+Waterstof kan worden gebruikt in een verbrandingsmotor. De duurzaamheid van waterstof hangt sterk af van de productiewijze. In dit verslag wordt er uitgegaan van groene waterstof, dat is waterstof dat met duurzame elektriciteit is gemaakt. Bij de verbrandingsreactie ontstaat alleen H$_2$O, daarmee is het zo goed als emissievrij. Bij hoge temperaturen kan alsnog NO$_x$ ontstaan.
 
 
 
@@ -252,7 +80,7 @@ Dr. Ten werkt samen met het bedrijf SFC Energy en beval ons aan om de methanol f
 Een andere aanbeveling van Dr. Ten was om de GenCell FOX van GenCellEnergy te onderzoeken. Dat is een Ammonia Fuel Cell waarbij ammoniak niet als brandstof wordt gebruikt, maar als waterstofdrager. De ammoniak is opgeslagen in een tank en stroomt naar de 'cracker'. In de cracker wordt ammoniak (NH$_3$) opgesplitst in N en H$_3$ door een katalysator. De waterstof die daarbij vrij komt gaat naar de brandstofcel, waarin het zich bindt met zuurstof. Daarbij komt elektriciteit, water en stikstof vrij \cite{GenCellFOXVideo}. Omdat er geen CO$_2$ in ammoniak zit komt dat ook niet vrij en de stikstof die vrij komt is ongevaarlijk, omdat het al met grote hoeveelheden in de lucht zit. De voordelen van een Ammonia Fuel Cell zijn dat de reactieproducten emissievrij en ongevaarlijk zijn en ammoniak veel makkelijker is op te slaan dan alleen waterstof. Een nadeel is dat ammoniak giftig is en bij een kleine lekkage al gevaarlijk kan zijn \cite{NIPVAmmoniakincidenten} \label{Ammoniakgiftig}. Ook kan ammoniak vrijkomen bij onvolledige omzetting. Op een klein schip als Jansje is de vluchtruimte beperkt en zou een incident met ammoniak tot ernstige veiligheidsrisico's kunnen leiden. Daarom wordt ammoniak niet verder meegenomen in dit onderzoek.
 
 \subsubsection{\textbf{Hydrogen Fuel Cell}}
-Een Hydrogen Fuel Cell is een brandstofcel die waterstof (H$_2$) omzet in elektriciteit, warmte en H$_2$O. Waterstof komt de brandstofcel binnen en wordt door een katalysator gesplitst, waarbij elektronen vrijkomen. Ook wordt zuurstof uit de lucht toegevoegd om deze reactie mogelijk te maken. De voordelen zijn dat het emissievrij is, ongevaarlijk is en een hoge energiedichtheid heeft. Nadelen zijn dat de opslag van waterstof lastig is, omdat het bij een normale temperatuur en druk een hele lage dichtheid heeft. Om waterstof te kunnen gebruiken moet het daarom sterk gecomprimeerd opgeslagen worden. Dat kan gedaan worden door het op een hele hoge druk te brengen (300-700 bar) of extreem te koelen tot -253 c°C zodat het vloeibaar wordt en een veel hogere dichtheid krijgt \cite{EngineeringToolboxHydrogen}. Dit brengt extra risico's en veiligheidseisen met zich mee, waar rekening mee moet worden gehouden. Bij waterstof verbranding is uitgelegd waarom vloeibare waterstof niet meegenomen wordt. 
+Een Hydrogen Fuel Cell is een brandstofcel die waterstof (H$_2$) omzet in elektriciteit, warmte en H$_2$O. Waterstof komt de brandstofcel binnen en wordt door een katalysator gesplitst, waarbij elektronen vrijkomen. Ook wordt zuurstof uit de lucht toegevoegd om deze reactie mogelijk te maken. De voordelen zijn dat het emissievrij is, ongevaarlijk is en een hoge energiedichtheid heeft. Nadelen zijn dat de opslag van waterstof lastig is, omdat het bij een normale temperatuur en druk een hele lage dichtheid heeft. Om waterstof te kunnen gebruiken moet het daarom sterk gecomprimeerd opgeslagen worden. Dat kan gedaan worden door het op een hele hoge druk te brengen (300-700 bar) of extreem te koelen tot -253 c°C zodat het vloeibaar wordt en een veel hogere dichtheid krijgt \cite{EngineeringToolboxHydrogen}. Dit brengt extra risico's en veiligheidseisen met zich mee, waar rekening mee moet worden gehouden. Bij waterstof verbranding is uitgelegd waarom vloeibare waterstof niet meegenomen wordt.
 
 \subsection{Elektrochemische energiesystemen}
 In deze paragraaf zal worden gekeken naar de verschillende Elektrochemische systemen die er op de markt zijn en welke daarvan de beste optie zouden kunnen zijn voor dit project.
@@ -281,7 +109,7 @@ Er zijn verschillende batterijen op de markt. Om de batterij te vinden die het m
 
 
 
-\noindent Daaruit volgt een criteriatabel. Door alle projectleden een stem te hebben gegeven in het bepalen van de wegingen, zijn de wegingen zo objectief mogelijk opgesteld. 
+\noindent Daaruit volgt een criteriatabel. Door alle projectleden een stem te hebben gegeven in het bepalen van de wegingen, zijn de wegingen zo objectief mogelijk opgesteld.
 
 
 \begin{table}[h]
@@ -291,8 +119,8 @@ Er zijn verschillende batterijen op de markt. Om de batterij te vinden die het m
 \toprule
 Criteria & Weging (\%) & NMC & LFP & LTO & LCO & LMO & NCA & G-NMC \\
 \midrule
-Veiligheid          & 30 & 2 & 3 & 3 & 1 & 2 & 2 & 2\\ 
-Kosten              & 20 & 2 & 2 & 1 & 2 & 3 & 3 & 2\\ 
+Veiligheid          & 30 & 2 & 3 & 3 & 1 & 2 & 2 & 2\\
+Kosten              & 20 & 2 & 2 & 1 & 2 & 3 & 3 & 2\\
 Levensduur          & 20 & 1 & 2 & 3 & 1 & 1 & 1 & 3\\
 Energiedichtheid    & 20 & 2 & 2 & 1 & 2 & 2 & 3 & 2\\
 Totaal              & 100 & 1.8 & 2.3 & 2.0 & 1.5 & 1.8 & 2.0 & 2.2\\
@@ -317,13 +145,13 @@ Fieldlab Maassluis heeft een samenwerking met het bedrijf Dr Ten. Dr Ten is een 
 Om het juiste energieopslagsysteem te kunnen selecteren, moet eerst worden gedefinieerd wat in dit project onder duurzame energie wordt verstaan. Volgens het NEA (Nederlandse Emissieatoriteit) \cite{NEAHernieuwbareEnergie} walstroom als groen beschouwd. Deze beschouwing is technisch gezien niet helemaal correct, maar zal gedurende dit project wel als de offciële maatstaf worden gebruikt \label{walstroomgroen}. Aan de hand van deze eisen zijn de volgende prestastiecriteria opgesteld:
 
 \begin{itemize}
-    \item Well-to-tank (WTT), hierbij wordt onderzocht hoeveel uitstoot er plaatsvindt tijdens het produceren van het energieopslagsysteem. Er wordt gekeken naar materiaalwinning en productieprocessen waarbij een score van 5 betekent dat alle materialen ruim aanwezig zijn, herwinbaar zijn en winning ervan lage impact heeft op het milieu. 
+    \item Well-to-tank (WTT), hierbij wordt onderzocht hoeveel uitstoot er plaatsvindt tijdens het produceren van het energieopslagsysteem. Er wordt gekeken naar materiaalwinning en productieprocessen waarbij een score van 5 betekent dat alle materialen ruim aanwezig zijn, herwinbaar zijn en winning ervan lage impact heeft op het milieu.
     \itemTank-to-wake (TTW), hierbij wordt gekeken naar de emissies die plaatsvinden bij het aandrijven van het schip. Een score van 5 betekent dat er geen uitstoot plaatsvindt terwijl een score van 1 juist heel veel uitstoot toont.
-    \item Circulariteit (circ.), bij dit criteria wordt onderzocht in hoeverre de energiebron uitputbaar is. Een score van 5 wordt gegeven als de energiebron onuitputbaar is, terwijl een score van 1 wordt gegeven als de energiebron eindig is. 
+    \item Circulariteit (circ.), bij dit criteria wordt onderzocht in hoeverre de energiebron uitputbaar is. Een score van 5 wordt gegeven als de energiebron onuitputbaar is, terwijl een score van 1 wordt gegeven als de energiebron eindig is.
     \item Milieurisico bij calamiteiten (falen) (Calam.), sommige energieopslagsystemen resulteren bij falen in uitstoot van zeer milieubelastende uitstoot. Deze krijgen dan ook een score van 1 terwijl zeer weinig uitstoot bij falen een score van 5 krijgt.
 \end{itemize}
 
-\noindent Elk projectlid heeft gestemd op welk criteria het belangrijkst bevonden wordt, aan de hand van deze stemmen \ref{naar google forms of citen ofz ff kijken hoe we dat flippen} zijn vervolgens de wegingen bepaald (afgerond op hele procenten). Wegens het feit dat voor bepaalde criteria zoals circulariteit en calamiteitenrisico geen empirische waarden te vinden zijn, zullen de verschillende systemen op basis van verschillende bronnen worden vergeleken en zal aan de hand daarvan een score worden bepaald. 
+\noindent Elk projectlid heeft gestemd op welk criteria het belangrijkst bevonden wordt, aan de hand van deze stemmen \ref{naar google forms of citen ofz ff kijken hoe we dat flippen} zijn vervolgens de wegingen bepaald (afgerond op hele procenten). Wegens het feit dat voor bepaalde criteria zoals circulariteit en calamiteitenrisico geen empirische waarden te vinden zijn, zullen de verschillende systemen op basis van verschillende bronnen worden vergeleken en zal aan de hand daarvan een score worden bepaald.
 
 \begin{table}[h]
 \centering
@@ -445,14 +273,14 @@ Zeezoutbatterij & \textbf{5} & \textbf{5} & \textbf{5} & \textbf{5} & \textbf{5.
 
 \section{Modelresultaten}
 
-\noindent In deze paragraaf wordt getoond hoe het model van het eerder genoemde studententeam \cite{BEPmodelexcel} is aangevuld met de nieuwe energiesystemen, geactualiseerd met waarden van het huidige marktaanbod, en wat de uiteindelijke resultaten zijn. De toegevoegde energiesystemen zijn de zeezoutbatterij ($4^e$ generatie) en de fuelcell op ammoniakbasis. 
+\noindent In deze paragraaf wordt getoond hoe het model van het eerder genoemde studententeam \cite{BEPmodelexcel} is aangevuld met de nieuwe energiesystemen, geactualiseerd met waarden van het huidige marktaanbod, en wat de uiteindelijke resultaten zijn. De toegevoegde energiesystemen zijn de zeezoutbatterij ($4^e$ generatie) en de fuelcell op ammoniakbasis.
 
 \subsection{Invoer}
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.5\linewidth]{Invoer-Uitvoer.png}
     \caption{Invoer van het excel model}
-    \label{fig:placeholder}
+    \label{fig:invoer_model}
 \end{figure}
 Om dit model te kunnen gebruiken, zijn een aantal aannames en schattingen gemaakt.
 Voor het vermogen en de vaartijd zijn grote delen al bepaald bij hoofdstuk 4 (?).\\
@@ -470,14 +298,14 @@ Als laatste is er voor de brandstofkosten simpelweg gekeken naar diverse bronnen
     \includegraphics[width=0.7
     \linewidth]{Hoofdstukken/uitvoer.png}
     \caption{Caption}
-    \label{fig:placeholder}
+    \label{fig:uitvoer_model}
 \end{figure}
 
 
 
 \section{Systeemconfiguratie en Randvoorwaarden}
 Om de keuze voor het energieopslagsysteem te maken, wordt gebruik gemaakt van een gewogen criteria analysetabel. Om deze tabel correct in te vullen, is het van belang om de systeemconfiguraties te bepalen voor de drie overgebleven energieopslagsystemen. De gekozen systemen zijn: de lithiumbatterij LFP 24V IP van MG Energy \cite{mg_lfp_datasheets_page_2026}, omdat deze geschikt is voor ruige maritieme doeleinden. Een zeezoutbatterij van Dr. Ten (24 V, 20 Ah) \cite{DrTenInfo2025} en een druktank met brandstofcel voor waterstof van \cite{powercell_s2_fuel_cell_stack} \cite{holthausen_telefoon_2026}.\\
- 
+
 \noindent In tabel 5.7 worden van elk van deze systemen de specificaties getoond:
 
 \begin{table}[h]
@@ -488,7 +316,7 @@ Om de keuze voor het energieopslagsysteem te maken, wordt gebruik gemaakt van ee
 \toprule
 Criterium & LFP \cite{mg_price_list_2026} \cite{mg_lfp_datasheets_page_2026} \cite{independer2026stroomprijs} \cite{redondoiglesias2022efficiency} & Zeezoutbatterij (gen 4.0) \cite{drten_zeezout_batterij2} \cite{JIPBatteryMaassluis} \cite{independer2026stroomprijs} \cite{DrTenInfo2025} & Waterstof brandstofcel
 \cite{powercell_s2_fuel_cell_stack}
-& Waterstof Tank (Druk) \cite{holthausen_telefoon_2026} 
+& Waterstof Tank (Druk) \cite{holthausen_telefoon_2026}
 \cite{h2live_2026}
 \cite{nationalacademies_hydrogen_energy_content}\\
 \midrule
@@ -500,7 +328,7 @@ Massa (kg) & 40 & 18.7 & 28.5 & 154.5 Kg (tank) + 7.1 Kg (waterstof)\\
 Dimensies (L x B X H (m)) & 0.531 x  0.206 x 0.295& 0.60 x 0.39 x 0.23 & 0.155 x 0.490 x 0.358 & 3.0 x 0.42 x 0.42 \\
 Efficiëntie (\%) & 92 & 97 & 57 & n.v.t\\
 \bottomrule
-\end{tabular}   
+\end{tabular}
 }
 \label{tab:prestatievergelijking_uitgebreid}
 \end{table}
@@ -534,7 +362,7 @@ Levensduur (jaren) & 87.5 & 1250 & 125 \\
 
 \bottomrule
 \end{tabular}}
-\label{tab:prestatievergelijking_uitgebreid}
+\label{tab:specifieke_energieopslag}
 \end{table}
 
 Deze nog naar de bijlage
@@ -559,7 +387,7 @@ Levensduur (jaren) & 87.5 & 1250 & 125 \\
 
 \bottomrule
 \end{tabular}}
-\label{tab:prestatievergelijking_uitgebreid}
+\label{tab:berekening_energieopslag}
 \end{table}
 
 
@@ -568,8 +396,8 @@ Nu in beeld is gebracht wat er voor elk systeem benodigd is kan er worden onderz
 \begin{itemize}
     \item Het minimaal benodigd vermogen is 22.5 kW.
     \item Het maximaal beschikbaar toe te voegen gewicht bedraagt 36.180 kg \ref{berekeningvan Aymen}, een hoger gewicht zou namelijk resulteren in zinken van het schip.
-    \item Het maximaal beschikbaar volume in de machinekamer en het laadruim is 12 $m^3$ \cite{vanbaalen2026interview}/ berekening van Milan. 
-    \item Om te voldoen aan de eis van scheepseigenaar Wim van Baalen is het van belang dat de minimale levensduur die het systeem moet kunnen doorgaan voordat het rendement dusdanig afneemt dat het systeem vervangen moet worden 10 jaar is \cite{vanbaalen2026interview}. 
+    \item Het maximaal beschikbaar volume in de machinekamer en het laadruim is 12 $m^3$ \cite{vanbaalen2026interview}/ berekening van Milan.
+    \item Om te voldoen aan de eis van scheepseigenaar Wim van Baalen is het van belang dat de minimale levensduur die het systeem moet kunnen doorgaan voordat het rendement dusdanig afneemt dat het systeem vervangen moet worden 10 jaar is \cite{vanbaalen2026interview}.
 \end{itemize}
 
 \begin{table}[h]
@@ -587,7 +415,7 @@ Levensduur (jaren)& \cmark & \cmark & \cmark & \\
 \bottomrule
 \end{tabular}
 }
-\label{tab:prestatievergelijking_uitgebreid}
+\label{tab:randvoorwaarden_check}
 \end{table}
 
 \subsection*{Conclusie}
@@ -604,7 +432,7 @@ Levensduur (jaren)& \cmark & \cmark & \cmark & \\
     \item \textbf{Kosten per effectief kilowattuur}: Om de gebruikskosten per systeem te kunnen  vergelijken wordt gekeken naar de prijs in $€$ die nodig is om het systeem met één kilowattuur op te laden.
     \item \textbf{Veiligheid}: De veiligheid van het energieopslagsysteem tijdens gebruik en de geschatte risico's die het meebrengt tijdens falen, gebaseerd op eerder gegeven scores \ref{}.
     \item \textbf{CAPEX}: De aanschafprijs in $€$ voor het hele systeemc
-    \item \textbf{Levensduur}: De theoretische levensduur tot waarbij het systeem functioneert. 
+    \item \textbf{Levensduur}: De theoretische levensduur tot waarbij het systeem functioneert.
     \item \textbf{Massa}: De massa in kg voor het hele systeem, een zwaarder systeem zorgt voor meer scheepsweerstand en dus is een zo licht mogelijk systeem gewenst.
     \item \textbf{Volume}: Het volume in m$^3$ per volle batterij of tank en brandstofcel.
     \item \textbf{Efficiëntie}: Het rendement van het systeem (hoeveel energie erprocentueel gezien overblijft tijdens het opslaan en omzetten van de energie).
@@ -626,9 +454,9 @@ Levensduur (jaren)& \cmark & \cmark & \cmark & \\
 \renewcommand{\arraystretch}{1.25}
 \begin{tabular}{l c c c}
 \hline
-\textbf{Veiligheidscriterium} 
-& \textbf{LFP-batterij} 
-& \textbf{Zeezoutbatterij} 
+\textbf{Veiligheidscriterium}
+& \textbf{LFP-batterij}
+& \textbf{Zeezoutbatterij}
 & \textbf{Waterstof onder druk} \\
 \hline
 Opslagdruk en temperatuur & 4 & 5 & 1 \\
@@ -660,9 +488,9 @@ Ventilatiebehoefte & 4 & 5 & 1 \\
 \renewcommand{\arraystretch}{1.25}
 \begin{tabular}{l c c c}
 \hline
-\textbf{Innovatiecriterium} 
-& \textbf{LFP-batterij} 
-& \textbf{Zeezoutbatterij} 
+\textbf{Innovatiecriterium}
+& \textbf{LFP-batterij}
+& \textbf{Zeezoutbatterij}
 & \textbf{Waterstof onder druk} \\
 \hline
 Nieuwheid van de technologie & 2 & 4 & 3 \\
@@ -709,5 +537,4 @@ Totaal & 100 & 3.76 & 4.05 & 3.47 \\
 
 \subsection*{Conclusie}
 
-\noindent Gezien het feit dat de zeezoutbatterij beter scoort dan de LFP batterij en de waterstof brandstofcel lijkt dit de beste optie. Echter voldoet de zeezoutbatterij niet aan de randvoorwaarde voor het volume dus kan het in de huidige configuratie niet worden geimplementeerd op het schip. Hierom zal een onderzoek worden gedaan naar in hoeverre zeezoutbatterijen in combinatie met het, hieropvolgende bestpresterende opslagsysteem, de LFP batterij een zo innovatief, duurzaam en goedpresterend systeem kan opleveren. 
-
+\noindent Gezien het feit dat de zeezoutbatterij beter scoort dan de LFP batterij en de waterstof brandstofcel lijkt dit de beste optie. Echter voldoet de zeezoutbatterij niet aan de randvoorwaarde voor het volume dus kan het in de huidige configuratie niet worden geimplementeerd op het schip. Hierom zal een onderzoek worden gedaan naar in hoeverre zeezoutbatterijen in combinatie met het, hieropvolgende bestpresterende opslagsysteem, de LFP batterij een zo innovatief, duurzaam en goedpresterend systeem kan opleveren.

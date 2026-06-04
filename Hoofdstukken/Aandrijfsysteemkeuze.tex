@@ -1,0 +1,52 @@
+\chapter{Aandrijfsysteemkeuze}
+\label{ch:aandrijfsysteemkeuze}
+
+\noindent Nu het energieopslagstysteem is bepaald, kan onderzocht worden wat de meeste geschikte aandrijving zal zijn. Dit is tevens deelvraag 3:
+\begin{quote}
+    \textit{\textbf{Welk aandrijfsysteem is het meest geschikt voor transportschip Jansje, rekening houdend met
+het gekozen energieopslagsysteem en het programma van eisen?}}
+\end{quote}
+\noindent Het gekozen energieopslagsysteem is een combinatie van zeezoutbatterijen en LFP batterijen. Dit zorgt er in ieder geval voor dat de huidige dieselmotor zal moeten worden vervangen door een elektromotor, in het geval dat keuze op een bio-brandstof zou vallen zou deze nog kunnen worden omgebouwd en hergebruikt maar in deze configuratie is dat geen optie. In dit hoofdstuk zullen randvoorwaarden worden opgesteld waaraan de nieuwe elektromotor zal moeten voldoen. Vervolgens zullen verschillende elektromotoren worden vergeleken en zal de best mogelijke optie worden gekozen.
+
+\subsection{Randvoorwaarden}
+\begin{enumerate}
+    \item Het minimale benodigde vermogen wat de elektromotor aan zal moeten kunnen, bedraagt 22 kW \ref{}.
+    \item De schroef draait in het huidige systeem op 600 RPM \cite{mail arnold}, dit betekent dat de nieuwe motor op hetzelfde toerenaantal zal moeten draaien of dat er een overbrenging nodig is.
+    \item Bij een toerental van 600 RPM is een koppel van 350 Nm nodig zoals berekend in de bijlage \ref{eq:koppelberekening}
+    \item Uit metingen die plaats hebben gevonden op het schip blijkt dat de beschikbare ruimte voor het aandrijfsysteem (lxbxh) 1.4 x 0.7 x 1.0 m is.
+    \item Het voltage van de elektromotor bedraagt 48 V \ref{}.
+    \item Vanwege het feit dat het energieopslagsysteem van het schip een direct stroom levert (DC) \cite{} is het rekening houdend met de kosten handig om een DC- motor aan te schaffen. Echter is het met een conversiesysteem wel mogelijk om gebruik te maken van een AC- motor dus hoeft deze optie niet uitgesloten te worden.
+\end{enumerate}
+
+
+
+\noindent
+
+\section{}
+Als een motor aan de bovenstaande eisen voldoet, kan deze worden toegepast in Jansje. Er zijn veel verschillende motoren op de markt met geschikte eigenschappen die goed bij Jansje zouden kunnen passen. Daarom is er één voorbeeldmotor gekozen om onder andere de prijs te kunnen bepalen. Een andere motor die aan dezelfde eisen voldoet, zou in principe ook geschikt kunnen zijn.
+
+
+\subsection{Voorbeeld motor}
+Als voorbeeldmotor is gekozen voor de GM22.5 Elektromotor van Green Marine. Deze motor is geselecteerd omdat Green Marine een Nederlands bedrijf is en de motor daardoor goed aansluit bij de Nederlandse markt. De prijs kan daarom worden gebruikt als realistische indicatie voor vergelijkbare motoren die mogelijk geschikt zijn voor Jansje. Omdat de motor een nominaal toerental van 1200 rpm heeft en het gewenste schroefastoerental 600 rpm is, is een 2:1 reductieoverbrenging nodig.
+
+\begin{table}[h]
+    \centering
+    \caption{Belangrijkste specificaties van de GM22.5 elektromotor}
+    \label{tab:gm22-5-motor}
+    \begin{tabular}{ll}
+        \hline
+        \textbf{Eigenschap} & \textbf{Waarde\cite{greenmarine_gm225_datasheet}} \\
+        \hline
+        Model & GM22.5 Elektromotor \\
+        Motortype & 3-fase PMSM \\
+        Prijs & Nog te bepalen via mailcontact \\
+        Vermogen & 22.5 kW \\
+        Accuspanning & 40--65 V, 48 V nominaal \\
+        Maximaal koppel & 180 Nm \\
+        Nominaal toerental & 1200 rpm \\
+        IP-klasse & IP68 \\
+        Gewicht motor & ca. 65 kg \\
+        Minimale kabeldikte & 120 mm$^2$ \\
+        \hline
+    \end{tabular}
+\end{table}

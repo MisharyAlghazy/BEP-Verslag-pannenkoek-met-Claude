@@ -1,0 +1,58 @@
+\chapter{Discussie}
+\label{ch:discussie}
+
+\noindent In dit hoofdstuk worden de belangrijkste beperkingen en kanttekeningen
+van het onderzoek gebundeld. Deze stonden eerder verspreid bij de afzonderlijke
+deelonderzoeken en zijn hier samengebracht zodat hun invloed op de eindconclusie
+in samenhang beoordeeld kan worden.
+
+% ============================================================
+\section{Beperkingen weerstands- en aandrijflijnberekening}
+\label{subsec:holtrop-validatie}
+
+De Holtrop-Mennen methode is een statistische regressiemethode die
+geschikt is voor vroege ontwerpfasen \cite{Holtrop1984}. De methode
+geeft geen garantie op een specifieke nauwkeurigheid, want dat hangt
+af van hoe goed het schip lijkt op de dataset waarop de regressie
+gebaseerd is. Voor \emph{'t~Jansje} zijn drie kanttekeningen van belang:
+
+\begin{itemize}
+    \item \textbf{Aanhangsels:} $R_{APP}$ is gebaseerd op een schatting van het
+          natte roeroppervlak achter een skeg. Bij definitieve vaststelling van
+          het aandrijfconcept dient dit nader te worden bepaald.
+
+    \item \textbf{Ondiepwater-effect:} De methode is ontwikkeld voor diepwater.
+          Het vaargebied (Nieuwe Maas, Maassluis) heeft een waterdiepte van
+          5--10~m, wat bij een diepgang van 1{,}50~m een verhouding
+          $h/T \approx 3$--$7$ oplevert. Bij $h/T < 4$ treden
+          ondiepwatereffecten op.
+
+    \item \textbf{Golven en wind:} De berekening geldt voor kalm water. Marges
+          voor golfweerstand en windweerstand zijn toegevoegd in de
+          20\%-marge uit Sectie~\ref{subsec:aandrijflijn-berekening}.
+\end{itemize}
+
+% ============================================================
+\section{Beperkingen stabiliteitsberekening}
+\label{sec:stab_beperkingen}
+
+\begin{itemize}
+    \item \textbf{$KG$-schatting}: Er is geen hellingsbroef gedaan met Jansje,
+          waardoor $KG$ niet bekend is. Uit
+          Tabel~\ref{tab:KG_gevoeligheid} blijkt echter dat $GM$ pas onder
+          het IMO minimum zakt bij $KG > 2{,}04$~m. Omdat het dek op
+          2{,}05~m zit, is dit onmogelijk. Onze conclusie over de stabiliteit klopt dus ,ongeacht de werkelijke waarde van $KG$.
+
+    \item \textbf{Vrijboordmarge}: De minimale marge van 0{,}20~m is
+          conservatief aangenomen. De exacte eis volgt uit de ES-TRIN/CCR
+          regelgeving.
+
+    \item \textbf{Grote hellingshoeken}: $GM$ beschrijft uitsluitend de
+         stabiliteit voor kleine hellingshoeken ($\phi < 10^\circ$). Voor een volledig
+          stabiliteitsoordeel is een $GZ$-diagram vereist
+          \cite[p.~134]{Barras2006}.
+\end{itemize}
+
+% ============================================================
+% PLACEHOLDER: voeg hier eventueel overige discussiepunten toe
+% (bv. beperkingen energieopslagkeuze, aannames model, experiment).

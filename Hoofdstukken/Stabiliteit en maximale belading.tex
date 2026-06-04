@@ -1,4 +1,4 @@
-\chapter{Stabiliteitsberekening en maximale ladingmassa}
+\chapter{Stabiliteit en maximale belading}
 \label{chap:stabiliteit}
 
 Voor de plaatsing van de zeezoutbatterijen in de centrale opslagruimte van
@@ -256,25 +256,60 @@ Beide criteria zijn gehaald: het vrijboord van 0{,}503~m ligt
  boven het minimum van 0{,}20~m, en $GM = 0{,}851$~m is
 groter dan het IMO minimum van 0{,}15~m.
 
-\subsection{Maximale toelaatbare ladingmassa}
+\subsection{Maximaal toe te voegen gewicht}
+\label{subsec:max_belading}
 
-Voor de volledigheid wordt ook de maximale bovengrens bepaald. 
+Het maximaal toe te voegen gewicht wordt begrensd door twee onafhankelijke
+eisen: de \emph{diepgangs-/vrijboordeis} en de \emph{IMO-eis voor de
+metacentrische hoogte} ($GM \geq 0{,}15$~m). Hieronder wordt voor beide de
+bijbehorende grensmassa bepaald; de kleinste van de twee is bindend. De
+berekening gebruikt dezelfde wandverticale benadering als hierboven
+($A_{WP} = 77{,}0\ \mathrm{m^2}$ en $I_T = 101{,}1\ \mathrm{m^4}$ constant),
+zoetwater ($\rho = 1000\ \mathrm{kg/m^3}$), een vrijboordmarge van
+$0{,}20$~m en een zwaartepunt van de toegevoegde lading op
+$z_\mathrm{lad} = 1{,}20$~m boven kiel.
 
+\paragraph{Eis 1 -- diepgang/vrijboord.}
 De maximale diepgang is $T_\mathrm{max} = D - 0{,}20 = 1{,}85$~m,
 zodat het schip nog $\Delta T = 1{,}85 - 1{,}50 = 0{,}35$~m mag inzakken.
-Het gewicht van het daarmee extra verplaatste water geeft de maximale
-ladingmassa:
+Het gewicht van het daarmee extra verplaatste water geeft de grensmassa:
 
 \begin{equation}
-    M_\mathrm{max} = \Delta T \times \rho \cdot A_{WP}
+    M_{\mathrm{max},T} = \Delta T \times \rho \cdot A_{WP}
                    = 0{,}35 \times 1000 \times 77{,}0 \times 10^{-3}
                    = \boxed{27{,}0\ \mathrm{t}}
     \label{eq:Mmax}
 \end{equation}
 
-Bij deze massa is het $GM$ nog $0{,}779$~m (zie Figuur~\ref{fig:GM_vs_M}),
-zodat de dwarsscheepse stabiliteit op geen enkel punt de beperkende factor is.
-De werkelijke batterijlading van 3{,}6~t valt een factor 7{,}5 onder dit maximum.
+\paragraph{Eis 2 -- IMO-stabiliteit ($GM \geq 0{,}15$~m).}
+Met de toegevoegde massa $M$ veranderen diepgang, drijfpunt, metacenterstraal
+en zwaartepunt mee:
+
+\begin{equation}
+    GM(M) = \underbrace{0{,}535\!\left(1{,}50 + \tfrac{M}{77{,}0}\right)}_{KB(M)}
+          + \underbrace{\frac{101{,}1}{73{,}0 + M}}_{BM(M)}
+          - \underbrace{\frac{73{,}0 \times 1{,}30 + M \times 1{,}20}{73{,}0 + M}}_{KG(M)}
+    \label{eq:GM_vanM}
+\end{equation}
+
+Bij de diepgangsgrens ($M = 27{,}0$~t, $T = 1{,}85$~m) levert dit:
+
+\begin{equation}
+    GM(27{,}0) = 0{,}990 + 1{,}011 - 1{,}273 = 0{,}728\ \mathrm{m}.
+\end{equation}
+
+Over het hele toelaatbare bereik blijft $GM$ vrijwel constant rond
+$0{,}73$--$0{,}89$~m (zie Figuur~\ref{fig:GM_vs_M}) en zakt het nooit in de
+buurt van het IMO-minimum van $0{,}15$~m. De GM-eis wordt pas overschreden bij
+een $KG$ boven $2{,}04$~m (Tabel~\ref{tab:KG_gevoeligheid}), wat fysisch
+onmogelijk is. De stabiliteit levert dus geen praktische bovengrens op.
+
+\paragraph{Bindende eis.}
+De diepgangs-/vrijboordeis (Eis~1) is bindend met
+$M_\mathrm{max} = 27{,}0$~t; de IMO-GM-eis (Eis~2) wordt ruim gehaald. Bij de
+grensmassa is $GM = 0{,}728$~m, nog altijd ruim boven het minimum. De
+werkelijke batterijlading van $3{,}6$~t valt een factor $\approx 7{,}5$ onder
+dit maximum.
 
 \paragraph{Langsscheepse stabiliteit}
 Het tweede moment om de dwarsscheepse as bedraagt
@@ -438,26 +473,8 @@ CCR-minimum $GM$ \cite{CCR2015} & \multicolumn{2}{c}{0{,}300} & m \\
 \end{tabular}
 \end{table}
 
-% ============================================================
-\section{Beperkingen}
-\label{sec:stab_beperkingen}
-
-\begin{itemize}
-    \item \textbf{$KG$-schatting}: Er is geen hellingsbroef gedaan met Jansje,
-          waardoor $KG$ niet bekend is. Uit
-          Tabel~\ref{tab:KG_gevoeligheid} blijkt echter dat $GM$ pas onder
-          het IMO minimum zakt bij $KG > 2{,}04$~m. Omdat het dek op
-          2{,}05~m zit, is dit onmogelijk. Onze conclusie over de stabiliteit klopt dus ,ongeacht de werkelijke waarde van $KG$.
-
-    \item \textbf{Vrijboordmarge}: De minimale marge van 0{,}20~m is
-          conservatief aangenomen. De exacte eis volgt uit de ES-TRIN/CCR
-          regelgeving.
-
-    \item \textbf{Grote hellingshoeken}: $GM$ beschrijft uitsluitend de
-         stabiliteit voor kleine hellingshoeken ($\phi < 10^\circ$). Voor een volledig
-          stabiliteitsoordeel is een $GZ$-diagram vereist
-          \cite[p.~134]{Barras2006}.
-\end{itemize}
+% --- Sectie "Beperkingen" verplaatst naar het hoofdstuk Discussie (zie Discussie.tex) ---
+% (label sec:stab_beperkingen verhuist mee)
 
 % ============================================================
 \section*{Conclusie}

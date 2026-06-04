@@ -1,0 +1,103 @@
+% --- Energie-randvoorwaarden: hotel load, capaciteit en reserves ---
+% Afgesplitst uit het voormalige hoofdstuk "Randvoorwaarden" (5 Energieopslagsysteemkeuze.tex).
+% Wordt als sectie(s) ingeladen ná de weerstands-/aandrijflijnberekening binnen het
+% hoofdstuk "Energievraag van het schip".
+
+\noindent Nu het aandrijfvermogen is bepaald, kunnen verschillende randvoorwaarden worden opgesteld. Deze randvoorwaarden zullen in het volgende hoofdstuk nodig zijn voor het verantwoorden van de keuze van het energieopslagsysteem.
+
+\section{Vermogensberekening}
+
+\noindent Om het totale vermogen te bepalen moet niet enkel worden gekeken naar het benodigde vermogen voor het aandrijven van het schip. In de huidige configuratie is er op het schip het volgende aanwezig wat stroom verbruikt, de zogeheten 'hotel load' (verlichting, stopcontacten, koelkast, boiler) en bijvoorbeeld batterijen voor het starten van de motoren \cite{vanbaalen2026interview}. Om een goede inschatting te kunnen maken voor hoeveel stroom dit verbruikt zal een berekening worden gedaan aan de hand van het gemiddelde stroomverbruik per persoon per huishouden. Aangezien deze gemiddelden veel meer in weging nemen dan aanwezig is op het schip (wasmachine, vaatwasser, televisie etc.) is deze schatting conservatief en zal het verbruik zeer waarschijnlijk lager uitvallen. Volgens de ANWB \cite{ANWBEnergieverbruik} is het gemiddeld stroomverbruik per jaar voor een driepersoonswoning 3080 kWh. De berekening die gebruikt is om dit voor het schip te bepalen is hieronder getoond:
+Het totale dagelijkse verbruik van het huishouden ($E_{\text{dag, huis}}$) wordt berekend door het jaarverbruik ($E_{\text{jaar}}$) te delen door het aantal dagen ($d$):
+\begin{equation}
+E_{\text{dag, huis}} = \frac{E_{\text{jaar}}}{d} = \frac{3080 \text{ kWh}}{365 \text{ dagen}} \approx 8{,}4384 \text{ kWh/dag}
+\end{equation}
+Om het individuele verbruik per persoon per dag ($E_{\text{pp, dag}}$) te bepalen, wordt het dagelijkse huishoudverbruik gedeeld door het aantal personen ($n = 3$):
+\begin{equation}
+E_{\text{pp, dag}} = \frac{E_{\text{dag, huis}}}{n} = \frac{8{,}4384 \text{ kWh/dag}}{3 \text{ personen}} \approx 2{,}8128 \text{ kWh per persoon per dag}
+\end{equation}
+
+\noindent Wegens het feit dat het schip gedurende de dag maximaal 8 uur vaart en er vanuit wordt gegaan dat er tijdens het stilligen in de haven een stroomvoorziening is wordt het verbruik per 8 uur berekend: ($24 \text{ uur} / 8 \text{ uur} = 3$). Het verbruik per persoon per 8 uur ($E_{\text{pp, 8u}}$) is dus:
+\begin{equation}
+E_{\text{pp, 8u}} = \frac{E_{\text{pp, dag}}}{3} = \frac{2{,}8128 \text{ kWh}}{3} \approx 0{,}9376 \text{ kWh per persoon per 8 uur}
+\end{equation}
+
+\noindent Het gemiddelde elektrische vermogen ($P_{\text{pp}}$) in kilowatt ($\text{kW}$) dat een persoon continu vraagt tijdens deze 8 uur, wordt berekend met de formule $P = \frac{E}{t}$:
+\begin{equation}
+P_{\text{pp}} = \frac{E_{\text{pp, 8u}}}{8 \text{ uur}} = \frac{0{,}9376 \text{ kWh}}{8 \text{ uur}} \approx 0{,}1172 \text{ kW} \quad (\approx 117{,}2 \text{ W})
+\end{equation}
+
+\noindent Nu we de individuele basisbehoefte per persoon kennen, kunnen we dit opschalen naar de  capaciteit op het schip. Er zijn in totaal vier overnachtingsplaatsen waardoor het verbruik van vier personen zal worden meegenomen. Van $4 \text{ personen}$ ($n_{\text{nieuw}} = 4$).
+
+\begin{equation}
+E_{\text{huis 4p, 8u}} = E_{\text{pp, 8u}} \times 4 = 0{,}9376 \text{ kWh} \times 4 \approx 3{,}7504 \text{ kWh per 8 uur}
+\end{equation}
+
+\noindent Het totale continue vermogen ($P_{\text{totaal 4p}}$) dat het systeem moet kunnen leveren om deze 4 personen gelijktijdig te voorzien is:
+\begin{equation}
+P_{\text{totaal 4p}} = P_{\text{pp}} \times 4 = 0{,}1172 \text{ kW} \times 4 \approx 0{,}4688 \text{ kW} \quad (\approx 468{,}8 \text{ W})
+\end{equation}
+
+\noindent Wegens het feit dat dit een conservatieve schatting is en de batterijen voor het starten van de motoren waarschijnlijk niet nodig zijn zal in het vervolg een totaal extra vermogen van 0.5 kW worden toegevoegd.
+
+\section{Capaciteitberekening}
+
+\noindent Nu het totale minimale benodigde vermogen is bepaald (22.5 kW) kan de benodigde capaciteit voor het schup worden bepaald. Aangezien het schip gedurende de trip veelal zal varen op een vermogen van 10.6 kW + 0.5 kW (hotel load) kan op basis daarvan de capaciteit worden bepaald gedurende een vaartocht van 6 of 8 uur.
+
+\noindent Nu het totale minimale benodigde vermogen is bepaald ($22{,}5 \text{ kW}$) kan de benodigde capaciteit voor het schip worden bepaald. Aangezien het schip gedurende de trip veelal zal varen op een vermogen van $10{,}6 \text{ kW} + 0{,}5 \text{ kW}$ (hotel load) kan op basis daarvan de capaciteit worden bepaald gedurende een vaartocht van 6 of 8 uur.
+
+
+\noindent De benodigde netto energiecapaciteit ($E$) in kilowattuur ($\text{kWh}$) wordt berekend door dit constante vermogen te vermenigvuldigen met de vaartijd ($t$) in uren ($E = P \times t$). Bij een gemiddelde vaartocht van 6 uur ($t = 6$) is de minimaal benodigde netto energiecapaciteit:
+\begin{equation}
+E_{\text{6 uur, netto}} = 11{,}1 \text{ kW} \times 6 \text{ uur} = 66{,}6 \text{ kWh}
+\end{equation}
+
+\noindent Bij een maximale vaartijd van  8 uur  ($t = 8$) is de minimaal benodigde netto energiecapaciteit:
+\begin{equation}
+E_{\text{8 uur, netto}} = 11{,}1 \text{ kW} \times 8 \text{ uur} = 88{,}8 \text{ kWh}
+\end{equation}
+
+\noindent Echter is het maximaal benodigd vermogen hoger, immers zal het schip bij speciale manoeuvres zoals het ontmeren, aanmeren en manoeuvreren in een sluis meer vermogen gebruiken. In de meest extreme situatie, waarin dit vermogen in combinatie met de maximale hotel load constant nodig is gedurende 6 of 8 uur varen is dit de benodigde energiecapaciteit:
+
+\begin{equation}
+E_{\text{6 uur, extreem netto}} = 22{,}5 \text{ kW} \times 6 \text{ uur} = 135{,}0 \text{ kWh}
+\end{equation}
+
+\begin{equation}
+E_{\text{8 uur, extreem netto}} = 22{,}5 \text{ kW} \times 8 \text{ uur} = 180{,}0 \text{ kWh}
+\end{equation}
+
+\noindent Aangezien dit in de praktijk in geen enkele situatie nodig is zal de benodigde capaciteit worden bepaald aan de van een manoeuvreertijd van maximaal 30 minuten uur per trip \cite{vanbaalen2026interview}.
+
+\noindent Om de totale netto energiecapaciteit ($E_{\text{totaal, netto}}$) te bepalen voor een vaardag waarin zowel kruisvaart als intensief manoeuvreren voorkomt, wordt de berekening opgesplitst in twee operationele fasen. We gaan uit van een kruisvermogen inclusief hotel load van $11{,}4 \text{ kW}$ gedurende 7,5 uur, en het maximale vermogen van $22{,}0 \text{ kW}$ gedurende 30 minuten ($0{,}5 \text{ uur}$).
+
+\noindent Het netto energieverbruik voor de kruisvaart ($E_{\text{kruis}}$) bedraagt:
+\begin{equation}
+E_{\text{kruis}} = 11{,}4 \text{ kW} \times 7{,}5 \text{ uur} = 85{,}5 \text{ kWh}
+\end{equation}
+
+\noindent Het netto energieverbruik voor het manoeuvreren ($E_{\text{manoeuvre}}$) bedraagt:
+\begin{equation}
+E_{\text{manoeuvre}} = 22{,}5 \text{ kW} \times 0{,}5 \text{ uur} = 11{,}25 \text{ kWh}
+\end{equation}
+
+\noindent De totale benodigde netto accucapaciteit voor deze trip is de som van beide fasen:
+\begin{equation}
+E_{\text{totaal, netto}} = E_{\text{kruis}} + E_{\text{manoeuvre}} = 85{,}5 \text{ kWh} + 11{,}25 \text{ kWh} = 96{,}75 \text{ kWh}
+\end{equation}
+
+\noindent Om er zeker van te zijn dat het schip in geen enkele situatie zonder energie komt te zitten, wordt er rekening gehouden met een extra capaciteitsreserve van 1 uur varen op kruissnelheid ($11{,}4 \text{ kW}$). Dit garandeert dat de bestemming te allen tijde veilig kan worden bereikt, zelf bij onvoorziene vertragingen.
+
+\noindent De benodigde energiecapaciteit voor de reserve ($E_{\text{reserve}}$) bedraagt:
+\begin{equation}
+E_{\text{reserve}} = 11{,}4 \text{ kW} \times 1 \text{ uur} = 11{,}4 \text{ kWh}
+\end{equation}
+
+\noindent De totale benodigde netto accucapaciteit inclusief deze veiligheidsreserve wordt hiermee:
+\begin{equation}
+E_{\text{totaal, inclusief reserve}} = E_{\text{kruis}} + E_{\text{manoeuvre}} + E_{\text{reserve}}
+\end{equation}
+
+\begin{equation}
+E_{\text{totaal, inclusief reserve}} = 85{,}5 \text{ kWh} + 11{,}25 \text{ kWh} + 11{,}4 \text{ kWh} = 108{,}15 \text{ kWh}
+\end{equation}
