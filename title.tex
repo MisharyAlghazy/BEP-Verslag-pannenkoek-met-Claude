@@ -1,0 +1,77 @@
+\begin{titlepage}
+
+\begin{center}
+
+%% Insert the TU Delft logo at the bottom of the page.
+
+%% Print the title in cyan.
+{\makeatletter
+\largetitlestyle\fontsize{64}{94}\selectfont\@title
+%\largetitlestyle\color{tudelft-cyan}\Huge\@title
+\makeatother}
+
+%% Print the optional subtitle in black.
+{\makeatletter
+\ifx\@subtitle\undefined\else
+    \bigskip
+   {\tudsffamily\fontsize{22}{32}\selectfont\@subtitle}    
+    %\titlefont\titleshape\LARGE\@subtitle
+\fi
+\makeatother}
+
+\bigskip
+\bigskip
+
+door
+
+\bigskip
+\bigskip
+
+{\makeatletter
+\largetitlestyle\fontsize{26}{26}\selectfont 
+\textbf{Groep 05}\\
+\vspace{7mm}
+M.D. Aarts (6044905) \\ 
+C.S. Kalkman (5845394) \\ 
+A. El Moubarik (5597617) \\ 
+Z.R. Neuteboom (6010253) \\ 
+S.J.J. Pufe (6071082)
+\makeatother}
+
+
+\bigskip
+\bigskip
+
+
+\vfill
+
+\begin{tabular}{lll}
+    Projectduur: & \multicolumn{2}{l}{9 februari 2026 -- 12 juni 2026} \\
+    Projectbegeleider: & Prof.\ dr.\ ir.\ J.\ Pruijn, & TU Delft, supervisor \\
+        & Dhr.\ H.\ Visser, & Kwartiermaker Project Maassluis\\
+        & Dhr.\ W. van Baalen\ , & Waarnemend eigenaar Jansje
+\end{tabular}
+
+\bigskip
+\bigskip
+\emph{}
+
+\bigskip
+\bigskip
+%\\[1cm]
+
+%\centering{\includegraphics{cover/logo_black}}
+
+
+\end{center}
+\begin{tikzpicture}[remember picture, overlay]
+    \node at (current page.south)[anchor=south,inner sep=0pt]{
+        \includegraphics{cover/logo_black}
+    };
+\end{tikzpicture}
+
+\end{titlepage}
+
+\mainmatter
+\let\cleardoublepage\clearpage
+

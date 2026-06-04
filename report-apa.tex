@@ -1,0 +1,140 @@
+\documentclass[whitelogo]{TUD-report2020}
+\usepackage[style=ieee]{biblatex}
+\addbibresource{report.bib}
+\usepackage{changes}
+\usepackage[dutch]{babel}
+\usepackage{pgfgantt}
+\usepackage{rotating}
+\usepackage{fancyhdr}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage{colortbl}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{pgfplotstable}
+\usepackage{tikz}
+\usetikzlibrary{patterns, calc, intersections}
+\usepgfplotslibrary{fillbetween}
+\usepackage{placeins}
+\usepackage{amssymb}
+\usepackage{amsmath, booktabs, float, xcolor, colortbl}
+\usepackage{tikz, pgfplots}
+\usetikzlibrary{arrows.meta, calc, positioning, patterns, fillbetween}
+\pgfplotsset{compat=1.18}
+\usepackage{pifont}   % voor \cmark / \xmark
+\newcommand{\cmark}{\ding{51}}
+\newcommand{\xmark}{\ding{55}}
+
+\newcommand{\cmark}{\tikz\draw[scale=0.3] (0,0) -- (0.2,-0.2) -- (0.6,0.2);}
+
+
+
+\fancypagestyle{mainmatter}{%
+    \fancyhf{}                    % clear all header and footer fields
+    \fancyfoot[C]{\titlefont\thepage}  % page number at center bottom
+    \renewcommand{\headrulewidth}{0pt} % remove header line
+    \renewcommand{\footrulewidth}{0pt} % remove footer line
+}
+
+% Chapter starting pages (plain) also at bottom
+\fancypagestyle{plain}{%
+    \fancyhf{}
+    \fancyfoot[C]{\titlefont\thepage}  % bottom center
+    \renewcommand{\headrulewidth}{0pt}
+    \renewcommand{\footrulewidth}{0pt}
+}
+
+% Apply to all pages
+\pagestyle{mainmatter}
+
+\begin{document}
+\pagenumbering{arabic}
+
+%% Use Roman numerals for the page numbers of the title pages and table of
+%% contents.
+\frontmatter
+
+%% Uncomment following 19 lines for a cover with a picture on the lower half only
+%\title[tudelft-white]{Title}
+%\subtitle[tudelft-cyan]{Optional subtitle}
+%\author[tudelft-white]{J.\ Random}
+%\affiliation{Technische Universiteit Delft}
+%\coverimage{cover.jpg}
+%\titleoffsetx{10cm}
+%\titleoffsety{10cm}
+%\afiloffsetx{1cm}
+%\afiloffsety{18cm}
+%\covertext[tudelft-white]{
+%    \textbf{Cover Text} \\
+%    possibly \\
+%    spanning 
+%    multiple 
+%    lines
+%    \vfill
+%    ISBN 000-00-0000-000-0
+%}
+%\makecover
+
+%% Uncomment following 16 lines for a cover with a picture on the lower half only
+\title[tudelft-white]{BEP}
+\subtitle[tudelft-black]{Verduurzaming Jansje}
+\affiliation{Technische Universiteit Delft}
+\coverimage{fotovanjansje.jpg}
+\covertext[tudelft-white]{
+    \begin{minipage}[t]{0.48\textwidth}
+        \textbf{Groepsleden:} \\
+        M.D. Aarts \\
+        C.S. Kalkman \\
+        A. el Moubarik \\
+        Z.R. Neuteboom \\
+        S.J.J. Pufe
+    \end{minipage}%
+    \hfill
+    \begin{minipage}[t]{0.48\textwidth}
+        \textbf{Projectbegeleiders:} \\
+        Jeroen Pruijn \\
+        Hans Visser
+    \end{minipage}
+}
+\setpagecolor{tudelft-cyan}
+\makecover[split]
+\input{title}
+\input{preface}
+\tableofcontents
+
+\include{Hoofdstukken/1 Inleiding}
+\include{Hoofdstukken/chartding}
+\include{Hoofdstukken/2 Probleemdefinitie en aanpak}
+\include{Hoofdstukken/3New Operationeel profiel}
+\include{Hoofdstukken/jansje_ch3_ch4_merged}
+\include{Hoofdstukken/5 Energieopslagsysteemkeuze}
+\include{Hoofdstukken/6 Stabiliteitsberekening en laadvermogen}
+\include{Hoofdstukken/Verdiepend experiment}
+\include{Hoofdstukken/8 Eindontwerp}
+\include{Hoofdstukken/eindontwerp}
+\include{Hoofdstukken/Aanbevelingen}
+\include{Hoofdstukken/9 Bijlage}
+
+
+
+
+%% Include an optional title page.
+
+
+
+%% Use Arabic numerals for the page numbers of the chapters.
+\mainmatter
+
+
+
+%% Use letters for the chapter numbers of the appendices.
+\appendix
+
+%\input{appendix-a}
+
+\printbibliography
+\bibliographystyle{IEEEtran}
+\end{document}
+
+\let\cleardoublepage\clearpage

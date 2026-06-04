@@ -1,0 +1,182 @@
+ 
+% ============================================================
+\chapter{Maximale belading en stabiliteitsgrens}
+\label{ch:max-belading}
+% ============================================================
+ 
+\section{Inleiding}
+\label{sec:max-belading-inleiding}
+ 
+Nu het minimaal benodigde motorvermogen is vastgesteld ($P_{B,\mathrm{inst}} \approx 37$~kW,
+zie Sectie~\ref{sec:aandrijflijn}) en de energieopslagsysteemkeuze is afgerond
+(Hoofdstuk~\ref{ch:energiekeuze}), kan worden beoordeeld of de gekozen batterijconfiguratie
+fysiek past binnen het schip. In dit hoofdstuk wordt bepaald hoeveel extra gewicht aan
+\emph{t~Jansje} kan worden toegevoegd voordat de stabiliteitseis wordt overschreden of de
+diepgang de rompdiepte bereikt. Twee grenswaarden worden beschouwd:
+ 
+\begin{enumerate}
+    \item \textbf{Diepgangsgrens}: de geladen diepgang $T_\mathrm{gel}$ mag de rompdiepte
+          $D = 2{,}05$~m niet overschrijden. Met een conservatieve minimale vrijboord van
+          $f_\mathrm{min} = 0{,}05$~m geldt:
+          \begin{equation}
+              T_\mathrm{max} = D - f_\mathrm{min} = 2{,}05 - 0{,}05 = 2{,}00\ \mathrm{m}.
+              \label{eq:Tmax}
+          \end{equation}
+    \item \textbf{Stabiliteitsgrens ($GM$)}: de metacentrische hoogte in geladen conditie
+          dient te voldoen aan de IMO-minimumeis van $GM_\mathrm{min} = 0{,}15$~m
+          \cite{IMO2008} en aan de aanbevolen ondergrens van $GM_\mathrm{aanbevolen} = 0{,}30$~m
+          voor binnenvaartschepen \cite{CCR2015}.
+\end{enumerate}
+ 
+\section{Scheepsgeometrische invoer}
+\label{sec:max-belading-invoer}
+ 
+\begin{table}[H]
+    \centering
+    \caption{Invoerparameters maximale beladingsberekening (zoetwater, $\rho = 1\,000\ \mathrm{kg/m^3}$)}
+    \label{tab:invoer-maxbelading}
+    \begin{tabular}{llrr}
+        \toprule
+        Parameter & Symbool & Waarde & Eenheid \\
+        \midrule
+        Lengte overall / waterlijn    & $L$                 & 22{,}22 & m    \\
+        Maximale breedte              & $B$                 &  4{,}36 & m    \\
+        Rompdiepte (kiel–dek)         & $D$                 &  2{,}05 & m    \\
+        Leeggewicht                   & $W_0$               & 73{,}0  & t    \\
+        Diepgang leeg                 & $T_0$               &  1{,}50 & m    \\
+        Blokcoëfficiënt               & $C_B$               &  0{,}502& –    \\
+        Hoofdspantcoëfficiënt         & $C_M$               &  0{,}90 & –    \\
+        Waterplancoëfficiënt          & $C_{WP}$            &  0{,}795& –    \\
+        Zwaartepunt leeg (geschat)    & $KG_0$              &  1{,}230& m    \\
+        Zwaartepunt lading (batterijen)& $z_b$              &  1{,}10 & m    \\
+        Minimale vrijboord            & $f_\mathrm{min}$    &  0{,}05 & m    \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+ 
+\section{Analytisch stabiliteitsmodel}
+\label{sec:analytisch-model}
+ 
+\subsection{Waterplanoppervlak en tweede moment}
+ 
+Het tweede moment van het waterplanoppervlak om de langscheepse as, benodigd voor $BM$,
+wordt berekend via de formule van Schneekluth \cite{Schneekluth1998}:
+ 
+\begin{equation}
+    I_T = \frac{L\,B^3}{12}\!\left(0{,}096 + 0{,}89\,C_{WP}^{2}\right)
+        = \frac{22{,}22 \times 4{,}36^3}{12}\!\left(0{,}096 + 0{,}89 \times 0{,}795^2\right)
+        = 101{,}1\ \mathrm{m}^4.
+    \label{eq:IT}
+\end{equation}
+ 
+De tonnemaat per meter diepgang (TPM) in zoetwater bedraagt:
+ 
+\begin{equation}
+    \mathrm{TPM} = \frac{\rho\,C_{WP}\,L\,B}{1000}
+               = \frac{1\,000 \times 0{,}795 \times 22{,}22 \times 4{,}36}{1000}
+               = 77{,}0\ \mathrm{t/m}.
+    \label{eq:TPM}
+\end{equation}
+ 
+\subsection{Betrekkingen als functie van de ladingmassa}
+ 
+Voor een toegevoegde ladingmassa $M_\mathrm{lading}$ (in kilogram) gelden:
+ 
+\begin{align}
+    \Delta T &= \frac{M_\mathrm{lading}}{\rho\,C_{WP}\,L\,B}
+              = \frac{M_\mathrm{lading}}{77\,004}\ \mathrm{m},
+    \qquad
+    T_\mathrm{gel} = T_0 + \Delta T,
+    \label{eq:deltaT} \\[6pt]
+    \nabla_\mathrm{gel} &= \frac{W_0 \times 10^3 + M_\mathrm{lading}}{\rho}
+                        = \frac{73\,000 + M_\mathrm{lading}}{1\,000}\ \mathrm{m}^3,
+    \label{eq:nabla-gel} \\[6pt]
+    KB_\mathrm{gel} &= T_\mathrm{gel}\!\left(0{,}9 - 0{,}3\,C_M - 0{,}1\,C_B\right)
+                    = T_\mathrm{gel} \times 0{,}5798\ \mathrm{m},
+    \label{eq:KB-gel} \\[6pt]
+    BM_\mathrm{gel} &= \frac{I_T}{\nabla_\mathrm{gel}}
+                    = \frac{101{,}1}{\nabla_\mathrm{gel}}\ \mathrm{m},
+    \label{eq:BM-gel} \\[6pt]
+    KG_\mathrm{gel} &= \frac{W_0 \times 10^3 \times KG_0 + M_\mathrm{lading} \times z_b}
+                             {W_0 \times 10^3 + M_\mathrm{lading}}
+                      = \frac{73\,000 \times 1{,}230 + M_\mathrm{lading} \times 1{,}10}
+                             {73\,000 + M_\mathrm{lading}}\ \mathrm{m},
+    \label{eq:KG-gel} \\[6pt]
+    GM_\mathrm{gel} &= KB_\mathrm{gel} + BM_\mathrm{gel} - KG_\mathrm{gel}.
+    \label{eq:GM-gel}
+\end{align}
+ 
+\section{Bepaling van de maximale belading}
+\label{sec:max-belading-resultaat}
+ 
+\subsection{Diepgangsgrens}
+ 
+De maximaal toelaatbare ladingmassa op basis van $T_\mathrm{max} = 2{,}00$~m:
+ 
+\begin{equation}
+    M_{\mathrm{lading,T}} = \rho\,C_{WP}\,L\,B\,(T_\mathrm{max} - T_0)
+                          = 77\,004 \times (2{,}00 - 1{,}50)
+                          = 38\,502\ \mathrm{kg} \approx \mathbf{38{,}5\ \mathrm{t}}.
+    \label{eq:M-diepgang}
+\end{equation}
+ 
+\subsection{Stabiliteitscontrole bij maximale diepgangsbelasting}
+ 
+Bij $M_\mathrm{lading,T} = 38\,502$~kg:
+ 
+\begin{align}
+    T_\mathrm{gel}      &= 1{,}50 + \frac{38\,502}{77\,004} = 2{,}000\ \mathrm{m},
+    \label{eq:Tgel-max}\\[4pt]
+    \nabla_\mathrm{gel} &= \frac{111\,502}{1\,000} = 111{,}5\ \mathrm{m}^3,
+    \label{eq:nabla-max}\\[4pt]
+    KB_\mathrm{gel}     &= 2{,}000 \times 0{,}5798 = 1{,}160\ \mathrm{m},
+    \label{eq:KB-max}\\[4pt]
+    BM_\mathrm{gel}     &= \frac{101{,}1}{111{,}5} = 0{,}907\ \mathrm{m},
+    \label{eq:BM-max}\\[4pt]
+    KG_\mathrm{gel}     &= \frac{89\,790 + 42\,352}{111\,502} = 1{,}185\ \mathrm{m},
+    \label{eq:KG-max}\\[4pt]
+    GM_\mathrm{gel}     &= 1{,}160 + 0{,}907 - 1{,}185 = \mathbf{0{,}882\ \mathrm{m}}.
+    \label{eq:GM-max}
+\end{align}
+ 
+De metacentrische hoogte bij maximale belasting ($GM = 0{,}882$~m) ligt ruimschoots
+boven zowel het IMO-minimum (0{,}15~m) als de aanbevolen ondergrens (0{,}30~m).
+De \textbf{bindende randvoorwaarde is de diepgangsgrens}, niet de stabiliteitseis.
+ 
+\subsection{Overzicht resultaten}
+ 
+\begin{table}[H]
+    \centering
+    \caption{Stabiliteitsoverzicht \emph{t~Jansje} – lege, geladen (ontwerpconfiguratie) en maximaal geladen conditie}
+    \label{tab:stabiliteit-overzicht-max}
+    \begin{tabular}{lrrrl}
+        \toprule
+        Grootheid & Leeg & Geladen (ontwerp) & Max.\ geladen & Eenheid \\
+        \midrule
+        Ladingmassa $M_\mathrm{lading}$          &  0{,}0  & 36{,}2  & 38{,}5  & t   \\
+        Diepgang $T$                              &  1{,}500& 1{,}970 & 2{,}000 & m   \\
+        Verdringingsvolume $\nabla$               & 73{,}0  &109{,}2  &111{,}5  & m$^3$ \\
+        Totaalgewicht $W$                         & 73{,}0  &109{,}2  &111{,}5  & t   \\
+        Hoogte drijfpunt $KB$                     &  0{,}870&  1{,}142&  1{,}160& m   \\
+        Metacentrische straal $BM$                &  1{,}384&  0{,}926&  0{,}907& m   \\
+        Metacentrum $KM = KB + BM$               &  2{,}254&  2{,}068&  2{,}067& m   \\
+        Zwaartepunt $KG$                          &  1{,}230&  1{,}187&  1{,}185& m   \\
+        Metacentrische hoogte $GM$                &  1{,}024&  0{,}881&  0{,}882& m   \\
+        IMO-minimum $GM_\mathrm{min}$             & \multicolumn{3}{c}{0{,}150} & m \\
+        Aanbevolen minimum $GM_\mathrm{aanbevolen}$& \multicolumn{3}{c}{0{,}300} & m \\
+        Slingerperiode $T_\phi$                   &  3{,}37 &  3{,}63 &  –      & s   \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+ 
+\section{Conclusie maximale belading}
+\label{sec:max-belading-conclusie}
+ 
+De maximaal toelaatbare extra ladingmassa voor \emph{t~Jansje} bedraagt
+$M_{\mathrm{lading,max}} = \mathbf{38{,}5\ \mathrm{t}}$, begrensd door de
+diepgangsgrens $T_\mathrm{max} = 2{,}00$~m. In dit scenario bedraagt
+$GM_\mathrm{gel} = 0{,}882$~m, ruim boven het IMO-minimum van 0{,}15~m en de
+aanbevolen binnenvaartondergrens van 0{,}30~m. De ontwerpconfiguratie van 1\,936
+zeezoutbatterijcellen (36{,}2~t, $T_\mathrm{gel} = 1{,}97$~m, $GM = 0{,}881$~m) valt
+daarmee veilig binnen de grens, met een resterende marge van
+$38{,}5 - 36{,}2 = \mathbf{2{,}3\ \mathrm{t}}$.

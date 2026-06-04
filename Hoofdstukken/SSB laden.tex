@@ -1,0 +1,72 @@
+\chapter{Opladen van zeezoutbatterij HOEZO IS DIT HOOFDSTUK ENGELS?}
+
+Tijdens het opladen is de volgende data gerealiseert:
+\subsection{Setup}
+For voltage measurement a multimeter is used.\\
+For current measurement the gauge of the powersource is used.\\
+Power source is an old (car)batterycharger. Can charge at 6V and 12V. We initialy set the power source to 6V.\\
+surrounding temperature: 13degrees (outside temp, buienalarm, 17-5-26, 12:00, Baambrugge). battery is near an open window.\\
+a test load (DC motor) is occacionaly used to determine if the load can be used for the actual test, and to read of the current with the multimeter, as it's probably more accurate than the gauge on the old charger.\\
+During the experiment, at 11:54, two cables with small diameter are added to the circuits, to lower the charging current.
+
+\subsection{SSB charging log}
+
+
+
+start: 11:30
+charge voltage:2.93v
+charge current: 3.5A
+\\\\
+11:31: current keeps rising, now at 4 A\\
+11:32: power shutoff, discharge current: 3.2A. discharge voltage 1.75\\
+11:33: resume charging, 4A at 2.91V.\\
+11:33: load checked, works.\\
+11:35: heat check: no warmth discharge from the battery.\\
+11:38: attempt to switch power source from 6V to 12V, current immediately rises to 6A (which is the max reading of the current gauge, so maybe more?). Actual voltage rises to 3.56.\\
+11:38: switched back to 6V power source, so now charging at 2.87V, but current stays at 6+ A.\\
+11:40: heat check of power soucre: slight warmth radiating from power source.\\
+11:40: power source shut-off, attempt to let the load cycle. Battery doesn't yet have enough current. discharge power at steady 1.75V.\\
+11:45: charging voltage has risen to 2.99V.\\
+11:49: charging stopped. Power source is rated for 4A constant charging, where the battery continuously charged at 6+ A, for which the old power source wasn't designed.\\
+11:49: heat check: no warmth discharge from battery. warmth discharge on power source slightly increased compared to previous measurement.\\
+11:54: continue charging. Added some small cables inbetween to reduce charging current. Current is now at 2.4A, voltage at 4.04V.\\
+11:55: power source makes small buzzing sound, probably also was there before, but didn't notice untill I checked.\\
+11:55: tried to switch to 12V, current went to 4A, and voltage to 6.4V. However, as this is an old power source, charging at 4A continouusly will propbably damage it, so switched back to 6V.\\
+11:57: charging at 4.17V, 2.2A.\\
+11:58: voltage dropped to 3.85V, current still at 2.2A.\\
+12:01: heat check: no warmth discharge from the battery, heat discharge from power source decreased. closed the window, it got cold and as the battery doesn't have any warmth discharge, no need for cooling.\\
+12:01: voltage increased to 3.97V, current still 2.2A\\
+12:03: voltage dropped to 3.89V, current 2.1A (current difference might be due to old equipment).\\
+12:05: voltage increased to 3.91V, current 2.1A.\\
+12:06: turned the multimeter upside down, then right side up, current now reads 4.01V.\\
+12:12: steady charging at 4V, 2.1A. It also seems that the battery (4sacks in parallel, so 4 cells?) are rated for max 2.4A current, although the provided literature is a bit vague on what charging parameters to use. (is one sack one cell? And does "box of 4 blocks in parallel, 8 in series" mean box of 4 cells in parallel or 8 cells in series?\\
+12:36: still charging at 4V, 2.1A.\\
+12:36: heat check, seasalt battery has a very slight warmth, power source warmth decreased.\\
+12:40: stopped charging, checked if battery can power load, which was succesfull.\\
+12:42:'visual battery inspection. The leads of the cells seam to be rather soft, the clamps of the charger slightly deformed them.\\
+12:45: amp test: output currently 0.27A.\\
+12:52: resume normal charging. Due to slightly improves circuit, charging at 5.2V, 2.1A.\\
+12:53: charged for approx 1hour, 0.27A.\\
+13:03: charging at 5.3V,2.1A.\\
+13:05 heat check: power source has negligible heat dissipation. Battery has slight heat dissipation, though only slightly sensible. Battery might have become a bit stiffer, although this has not been previously checked, and therefore can also not be the case. Small wires that where used start to heat up. might be wise to change them.\\
+13:07: stop charging to swap out the small cables so they don't overheat.\\
+13:08: discharge at 1.8V, which is quite good.\\
+13:09: resumed charging, 5.4V at 2A. Swapped out the small cables for other ones of the same length, thickness, rating etc. old cables where cold already when I swapped them, and new ones where almost immediately the same temp as the old ones, so it seems to be just heat dissipation from the current, not accumulating heat, thus the cables do exactly what we want (act as additional resistance by dissipating heat). Connections of the multimeter have also improved, readings have become more stable.\\
+13:41: steadily charging at 5.5V, 1.99A. slight local heat dissipation of the battery, though not even near concerning.\\
+14:22: visual inspection: no notable differences.\\
+14:22: heat inspection: heat dissipation from the battery increased more than previously measured. small cables are warm, but not concerning.\\
+14:22: still charging at 5.5V, 2A. Even though the battery starts to warm up a bit, I would expect a drop in current when the battery is (almost) fully charged.\\
+14:30: stopped charging.\\
+14:30: voltage test: open circuit is 1.7V, closed circuit with load is 1.1V. Should the closed circuit lpad be 1.7V as well when fully charged?\\
+14:33: resumed charging, 5.5V, 2A.\\
+14:40: visual inspection: I noticed some hardened droplets on the top of the cells. They could just be adhesive used to seal the bags, but they might also be leakeage? Luckily, as this is a seasalt battery, there shouldn't be any harm to me.\\
+14:45: stopped charging, ending the charging. The battery should be sufficiently charged for the upcomming test. \\
+19:19: upon visual inspection: under certain light angle, slight yellow discoloration can be seen, although very slight. 
+
+
+\subsection{Looking back}
+The initial current of 6+ A at 3V is in line with the fact that the battery was deeply discharged. Also in line is the fact that, when the battery gains charge, the voltage increases and the current drops. According to the manufacturer, the charging time would be approximately eight hours. However, with three hours of charging, the battery should have enough charge for the experiment. Visualy inspecting the battery later, showed yellow coloring in the battery. According to the manufacturer this is due to crystals forming due to slight (local?) overcharging. however, In literature it is stated that a drop in charging current and rise in voltage should occur when the battery is near-full, which hasn't happened. This would lead to the conclusion that the battery might not have been optimaly functioning. However, this likely won't affect the experiment, as long as it keeps enough charge to complete the experiment.
+
+\subsection{For the future}
+The material of the poles are very soft, electrical clamps damage the surface and deform it. Furthermore, the poles aren't guarded, so putting them in a bag for traveling could create a current through the bag if the material is conducting. Therefore, for future experiments with similar cells I would advise to create a simple, hard plastic case and additional poles of a stronger metal.
+
