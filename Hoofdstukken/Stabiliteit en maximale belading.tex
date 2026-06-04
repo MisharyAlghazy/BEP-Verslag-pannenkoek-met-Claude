@@ -1,12 +1,13 @@
 \chapter{Stabiliteit en maximale belading}
 \label{chap:stabiliteit}
 
-Voor de plaatsing van de zeezoutbatterijen in de centrale opslagruimte van
-\emph{'t~Jansje} moet worden gecontroleerd of het schip in geladen conditie
-nog voldoet aan de stabiliteitseisen en of de diepgang binnen de toegestane
-grenzen blijft. Alle berekeningen zijn uitgevoerd voor zoetwater
-($\rho = 1000\ \mathrm{kg/m^3}$), omdat \emph{'t~Jansje} voornamelijk vaart
-op de Nieuwe Maas.
+Dit hoofdstuk stelt de stabiliteit van \emph{'t~Jansje} in lege conditie vast en
+bepaalt het \emph{maximaal toe te voegen gewicht} voordat de stabiliteits- of
+diepgangseis wordt overschreden. Daarmee legt het de gewichtsgrens vast waarbinnen
+de daadwerkelijke ontwerpconfiguraties moeten passen; die configuraties worden
+zelf doorgerekend in het hoofdstuk Eindontwerp. Alle berekeningen zijn uitgevoerd
+voor zoetwater ($\rho = 1000\ \mathrm{kg/m^3}$), omdat \emph{'t~Jansje}
+voornamelijk vaart op de Nieuwe Maas.
 
 % ============================================================
 \section{Scheepsgegevens en invoer}
@@ -29,114 +30,13 @@ Rompdiepte (kiel t/m dek)   & $D$      &  2{,}05 & m     \\
 Verdringingsvolume (leeg)   & $\nabla$ & 73{,}0  & m$^3$ \\
 Scheepsgewicht (leeg)       & $W$      & 73{,}0  & t     \\
 Waterplancoëfficiënt        & $C_{WP}$ &  0{,}795& --    \\
-\midrule
-\multicolumn{4}{l}{\textit{Centrale opslagruimte}} \\
-\midrule
-Ruimlengte                  & $L_r$    &  3{,}00 & m     \\
-Ruimbreedte                 & $B_r$    &  2{,}00 & m     \\
-Ruimhoogte                  & $H_r$    &  2{,}00 & m     \\
-\midrule
-\multicolumn{4}{l}{\textit{Zeezoutbatterij -- per cel \cite{DrTenInfo2025}}} \\
-\midrule
-Massa per cel               & $m_b$    & 18{,}0  & kg    \\
-Afmetingen ($l \times b \times h$) & -- & $0{,}39 \times 0{,}60 \times 0{,}23$ & m \\
-Volume per cel              & $V_b$    & 0{,}0538& m$^3$ \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-% ============================================================
-\section{Batterijpakking}
-\label{sec:batterijen}
-
-Voordat de stabiliteit kan worden gecontroleerd, moet het aantal batterijen
-dat in het ruim past worden bepaald. De gunstigste oriëntatie is met de
-lange zijde (0{,}60~m) langs de ruimlengte:
-
-\begin{equation}
-    N_b = \left\lfloor \frac{3{,}00}{0{,}60} \right\rfloor \times
-          \left\lfloor \frac{2{,}00}{0{,}39} \right\rfloor \times
-          \left\lfloor \frac{2{,}00}{0{,}23} \right\rfloor
-        = 5 \times 5 \times 8 = \boxed{200\ \text{cellen}}
-    \label{eq:Nb}
-\end{equation}
-
-De totale ladingmassa en het volume bedragen:
-
-\begin{align}
-    M_\mathrm{bat} &= 200 \times 18{,}0\ \mathrm{kg} = \boxed{3{,}6\ \mathrm{t}}
-    \label{eq:Mbat} \\[4pt]
-    V_\mathrm{bat} &= 200 \times 0{,}0538 = 10{,}76\ \mathrm{m^3}
-\end{align}
-
-De pakkingsefficiëntie bedraagt $10{,}76/12{,}0 = 89{,}7\%$ Figuur~\ref{fig:bat_pakking} toont de schematische pakking in zijaanzicht.
-
-\begin{figure}[H]
-\centering
-\begin{tikzpicture}
-\def\sc{2.2}
-\pgfmathsetmacro{\Lr}{3.00*\sc}
-\pgfmathsetmacro{\Hr}{2.00*\sc}
-\pgfmathsetmacro{\bl}{0.60*\sc}
-\pgfmathsetmacro{\bh}{0.23*\sc}
-
-\foreach \row in {0,...,7}{
-    \foreach \col in {0,...,4}{
-        \pgfmathsetmacro{\xpos}{\col*\bl}
-        \pgfmathsetmacro{\ypos}{\row*\bh}
-        \pgfmathparse{int(mod(\row,2))}
-        \ifnum\pgfmathresult=0
-            \definecolor{batcol}{RGB}{80,145,205}
-        \else
-            \definecolor{batcol}{RGB}{130,180,225}
-        \fi
-        \fill[batcol, opacity=0.85]
-            (\xpos cm+0.04cm,\ypos cm+0.03cm)
-            rectangle
-            (\xpos cm+\bl cm-0.04cm,\ypos cm+\bh cm-0.03cm);
-        \draw[white, line width=0.5pt]
-            (\xpos cm+0.04cm,\ypos cm+0.03cm)
-            rectangle
-            (\xpos cm+\bl cm-0.04cm,\ypos cm+\bh cm-0.03cm);
-    }
-}
-\draw[black, line width=2pt] (0,0) rectangle (\Lr cm,\Hr cm);
-
-\draw[|-|, thick]
-    (0,-0.75cm) -- (\Lr cm,-0.75cm)
-    node[midway, below, font=\small]
-        {$L_r = 3{,}00$~m \;(5 cellen $\times$ 0{,}60~m)};
-\draw[|-|, thick]
-    (\Lr cm+0.75cm,0) -- (\Lr cm+0.75cm,\Hr cm)
-    node[midway, right, font=\small]
-        {$H_r = 2{,}00$~m \;(8 lagen $\times$ 0{,}23~m)};
-
-\pgfmathsetmacro{\hx}{4*\bl}
-\pgfmathsetmacro{\hy}{7*\bh}
-\draw[red!80!black, line width=1.4pt]
-    (\hx cm+0.04cm,\hy cm+0.03cm)
-    rectangle
-    (\hx cm+\bl cm-0.04cm,\hy cm+\bh cm-0.03cm);
-\draw[->, red!80!black, thick]
-    (\hx cm+\bl cm*0.5,\hy cm+\bh cm)
-    -- ++(0.3cm,1.0cm)
-    node[right, font=\scriptsize, red!80!black, align=left]
-        {$0{,}60{\times}0{,}39{\times}0{,}23$~m\\18{,}0~kg per cel};
-
-\node[font=\small\bfseries, text=blue!70!black, align=center]
-    at (\Lr cm*0.5,\Hr cm+1.6cm)
-    {Zijaanzicht: $5{\times}8=40$ cellen per laag
-     $\;\Rightarrow\;$ $5{\times}5{\times}8=\mathbf{200}$ cellen totaal};
-\node[font=\small, text=gray!60!black, align=center]
-    at (\Lr cm*0.5,\Hr cm+2.2cm)
-    {(diepte: 5 cellen van 0{,}39~m langs $B_r=2{,}00$~m)};
-\end{tikzpicture}
-\caption{Pakking van de zeezoutbatterijen in het laadruim (zijaanzicht,
-         $3{,}00 \times 2{,}00$~m). In de breedterichting passen 5 cellen
-         van 0{,}39~m; totaal $5 \times 5 \times 8 = 200$ cellen
-         \cite{DrTenInfo2025}.}
-\label{fig:bat_pakking}
-\end{figure}
+% --- Sectie "Batterijpakking" (200-cellen vulling) verwijderd:
+%     de daadwerkelijke batterijconfiguraties worden doorgerekend in het
+%     hoofdstuk Eindontwerp. Dit hoofdstuk bepaalt enkel lege conditie + gewichtsgrens. ---
 
 % ============================================================
 \section{Stabiliteitsberekening}
@@ -225,37 +125,6 @@ De metacentrische hoogte in lege conditie bedraagt daarmee:
     \label{eq:GM_leeg}
 \end{equation}
 
-\subsection{Geladen conditie -- 200 batterijen (3{,}6~t)}
-
-Het zwaartepunt van de lading wordt aangenomen op $z_b = 1{,}20$~m boven
-kiel (ruimbodem op $\approx 0{,}20$~m, midden van de 2{,}00~m stapelhoogte
-op $+1{,}00$~m). De nieuwe diepgang, het verdringingsvolume en de
-stabiliteitgrootheden worden als volgt berekend:
-
-\begin{align}
-    A_{WP}              &= C_{WP} \cdot L \cdot B
-                         = 0{,}795 \times 22{,}22 \times 4{,}36
-                         = 77{,}0\ \mathrm{m^2} \\[4pt]
-    T_\mathrm{gel}      &= 1{,}500 + \frac{3{,}6}{77{,}0}
-                         = 1{,}547\ \mathrm{m}
-                         \quad\Rightarrow\quad
-                         \text{vrijboord} = 2{,}05 - 1{,}547 = 0{,}503\ \mathrm{m}
-                         \\[4pt]
-    \nabla_\mathrm{gel} &= 73{,}0 + 3{,}6 = 76{,}6\ \mathrm{m^3} \\[4pt]
-    KB_\mathrm{gel}     &= 0{,}535 \times 1{,}547 = 0{,}828\ \mathrm{m} \\[4pt]
-    BM_\mathrm{gel}     &= \frac{101{,}1}{76{,}6}  = 1{,}319\ \mathrm{m} \\[4pt]
-    KG_\mathrm{gel}     &= \frac{73{,}0 \times 1{,}30 + 3{,}6 \times 1{,}20}
-                               {76{,}6}
-                         = \frac{94{,}90 + 4{,}32}{76{,}6}
-                         = 1{,}296\ \mathrm{m} \\[4pt]
-    GM_\mathrm{gel}     &= 0{,}828 + 1{,}319 - 1{,}296
-                         = \boxed{0{,}851\ \mathrm{m}}
-\end{align}
-
-Beide criteria zijn gehaald: het vrijboord van 0{,}503~m ligt
- boven het minimum van 0{,}20~m, en $GM = 0{,}851$~m is
-groter dan het IMO minimum van 0{,}15~m.
-
 \subsection{Maximaal toe te voegen gewicht}
 \label{subsec:max_belading}
 
@@ -263,11 +132,15 @@ Het maximaal toe te voegen gewicht wordt begrensd door twee onafhankelijke
 eisen: de \emph{diepgangs-/vrijboordeis} en de \emph{IMO-eis voor de
 metacentrische hoogte} ($GM \geq 0{,}15$~m). Hieronder wordt voor beide de
 bijbehorende grensmassa bepaald; de kleinste van de twee is bindend. De
-berekening gebruikt dezelfde wandverticale benadering als hierboven
-($A_{WP} = 77{,}0\ \mathrm{m^2}$ en $I_T = 101{,}1\ \mathrm{m^4}$ constant),
-zoetwater ($\rho = 1000\ \mathrm{kg/m^3}$), een vrijboordmarge van
-$0{,}20$~m en een zwaartepunt van de toegevoegde lading op
-$z_\mathrm{lad} = 1{,}20$~m boven kiel.
+berekening gebruikt een wandverticale benadering met constant waterplanoppervlak
+\begin{equation}
+    A_{WP} = C_{WP} \cdot L \cdot B
+           = 0{,}795 \times 22{,}22 \times 4{,}36
+           = 77{,}0\ \mathrm{m^2},
+\end{equation}
+en $I_T = 101{,}1\ \mathrm{m^4}$ constant, zoetwater
+($\rho = 1000\ \mathrm{kg/m^3}$), een vrijboordmarge van $0{,}20$~m en een
+zwaartepunt van de toegevoegde lading op $z_\mathrm{lad} = 1{,}20$~m boven kiel.
 
 \paragraph{Eis 1 -- diepgang/vrijboord.}
 De maximale diepgang is $T_\mathrm{max} = D - 0{,}20 = 1{,}85$~m,
@@ -308,7 +181,8 @@ onmogelijk is. De stabiliteit levert dus geen praktische bovengrens op.
 De diepgangs-/vrijboordeis (Eis~1) is bindend met
 $M_\mathrm{max} = 27{,}0$~t; de IMO-GM-eis (Eis~2) wordt ruim gehaald. Bij de
 grensmassa is $GM = 0{,}728$~m, nog altijd ruim boven het minimum. De
-werkelijke batterijlading van $3{,}6$~t valt een factor $\approx 7{,}5$ onder
+daadwerkelijke batterijconfiguraties (ordegrootte $1{,}8$--$2{,}2$~t, zie het
+hoofdstuk Eindontwerp) vallen hiermee ruimschoots, ruim een factor~$10$, onder
 dit maximum.
 
 \paragraph{Langsscheepse stabiliteit}
@@ -433,14 +307,15 @@ centraal geplaatste lading niet de beperkende factor.
 \node[red, font=\scriptsize, rotate=90, anchor=south west]
     at (axis cs:27.2,0.01) {$M_\mathrm{max}=27{,}0$~t};
 
-\addplot[gray!60, thick, dotted, forget plot] coordinates {(3.6,0)(3.6,1.0)};
+\addplot[gray!60, thick, dotted, forget plot] coordinates {(2.2,0)(2.2,1.0)};
 \node[gray!50!black, font=\scriptsize, rotate=90, anchor=south west]
-    at (axis cs:3.8,0.01) {3{,}6~t (werkelijk)};
+    at (axis cs:2.4,0.01) {ontwerpen $\approx$1{,}8--2{,}2~t};
 \end{axis}
 \end{tikzpicture}
 \caption{$GM$ en vrijboord als functie van de ladingmassa ($KG_\mathrm{leeg}
-         = 1{,}30$~m). De rode verticale lijn markeert de vrijboordlimiet
-         van 27{,}0~t. De werkelijke batterijlading van 3{,}6~t valt ver
+         = 1{,}30$~m). De rode verticale lijn markeert de bindende
+         vrijboordlimiet van 27{,}0~t. De daadwerkelijke ontwerpladingen
+         ($\approx$1{,}8--2{,}2~t, hoofdstuk Eindontwerp) vallen ver
          binnen beide criteria.}
 \label{fig:GM_vs_M}
 \end{figure}
@@ -451,22 +326,23 @@ centraal geplaatste lading niet de beperkende factor.
 
 \begin{table}[H]
 \centering
-\caption{Stabiliteitsoverzicht \emph{'t~Jansje} -- lege en geladen conditie}
+\caption{Stabiliteitsoverzicht \emph{'t~Jansje} -- lege conditie en bij de
+         maximale (bindende) ladingmassa}
 \label{tab:stab_overzicht}
 \begin{tabular}{lrrl}
 \toprule
-Grootheid & Leeg & Geladen ($3{,}6$~t) & Eenheid \\
+Grootheid & Leeg & Bij $M_\mathrm{max}$ ($27$~t) & Eenheid \\
 \midrule
-Diepgang $T$             & 1{,}500 & 1{,}547 & m     \\
-Vrijboord                & 0{,}550 & 0{,}503 & m     \\
-$\nabla$                 & 73{,}0  & 76{,}6  & m$^3$ \\
+Diepgang $T$             & 1{,}500 & 1{,}850 & m     \\
+Vrijboord                & 0{,}550 & 0{,}200 & m     \\
+$\nabla$                 & 73{,}0  & 100{,}0 & m$^3$ \\
 \midrule
-$KB$                     & 0{,}803 & 0{,}828 & m \\
-$BM$                     & 1{,}384 & 1{,}319 & m \\
-$KG$                     & 1{,}300 & 1{,}296 & m \\
+$KB$                     & 0{,}803 & 0{,}990 & m \\
+$BM$                     & 1{,}384 & 1{,}011 & m \\
+$KG$                     & 1{,}300 & 1{,}273 & m \\
 \midrule
 \rowcolor{green!15}
-$GM$                     & \textbf{0{,}887} & \textbf{0{,}851} & m \\
+$GM$                     & \textbf{0{,}887} & \textbf{0{,}728} & m \\
 IMO-minimum $GM$         & \multicolumn{2}{c}{0{,}150} & m \\
 CCR-minimum $GM$ \cite{CCR2015} & \multicolumn{2}{c}{0{,}300} & m \\
 \bottomrule
@@ -480,10 +356,9 @@ CCR-minimum $GM$ \cite{CCR2015} & \multicolumn{2}{c}{0{,}300} & m \\
 \section*{Conclusie}
 \label{sec:stab_conclusie}
 
-In de centrale opslagruimte passen geometrisch $\mathbf{200}$
-zeezoutbatterijcellen ($M_\mathrm{bat} = \mathbf{3{,}6}$~t). De
-metacentrische hoogte neemt af van $0{,}887$~m (leeg) naar $0{,}851$~m
-(geladen), dit is boven het IMO minimum van $0{,}15$~m. Het vrijboord van 0{,}503~m in geladen conditie
-is ook voldoende. De maximaal toelaatbare ladingmassa bedraagt
-$27{,}0$~t; de werkelijke batterijlading valt daar een factor $7{,}5$
-onder.
+In lege conditie bedraagt de metacentrische hoogte $GM = 0{,}887$~m, ruim
+boven het IMO-minimum van $0{,}15$~m. Het maximaal toe te voegen gewicht wordt
+begrensd door de diepgangs-/vrijboordeis op $M_\mathrm{max} = 27{,}0$~t; bij die
+grensmassa is $GM$ nog $0{,}728$~m, zodat de dwarsscheepse stabiliteit nooit de
+bindende factor is. De daadwerkelijke ontwerpladingen ($\approx 1{,}8$--$2{,}2$~t,
+zie hoofdstuk Eindontwerp) blijven hier ruimschoots onder.
